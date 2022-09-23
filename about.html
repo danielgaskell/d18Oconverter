@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+  Copyright (c) 2022, Daniel E. Gaskell and Pincelli M. Hull.
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+    - The above copyright notice and this permission notice shall be included
+      in all copies or substantial portions of the Software.
+    - Any publications making use of the Software or any substantial portions
+      thereof shall cite the Software's original publication:
+
+          [FIXME insert publication here]
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>&delta;¹⁸O to temperature converter - information</title>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1>&delta;<sup>18</sup>O to temperature converter</h1>
+	<ul class="tabbar">
+		<li><a href="index.html">Convert data</a></li>
+		<li><a href="about.html" class="activetab">Information</a></li>
+	</ul>
+	<div class="shadow"></div>
+	<div class="content">
+		<h2>Introduction</h2>
+		<p>This tool converts carbonate &delta;<sup>18</sup>O data to temperatures. It automates the process of applying a number of correction methods which have been developed in the literature, as well as providing convenient access to a range of published species- and scenario-specific calibrations. It also automates two routine but technically complex tasks: performing paleocoordinate rotations and reconciling age datums between required datasets.</p>
+		<p>If you use output from this tool in publications, please cite the following publication:</p>
+		<ul><li class='citation'>Gaskell, D.E., Pincelli M. Hull, 2022. Technical note: A new online tool for &delta;<sup>18</sup>O-temperature conversions: Journal, Volume. doi:10.1109/5.771073FIXME.</li></ul>
+		<p>The tool output also includes a short summary of the methods used for each run, with citations. This information may be used in publications using this tool, in whole, in part, or in adaptation, subject to the journal's standards. (At a minimum you should cite the references listed in order to give credit to the authors of the underlying datasets and methods used.)</p>
+		
+		<h2>Documentation</h2>
+		<p>The &delta;<sup>18</sup>O paleothermometer is based on the observed relationship between &delta;<sup>18</sup>O and temperature in inorganic and biogenic carbonates (for a review, see <a href="#sharp">Sharp, 2017</a>). &delta;<sup>18</sup>O data are typically converted to temperatures using an empirical calibration such as that of <a href="#kim">Kim & O'Neil (1997)</a>:</p>
+		<div class='math'><math><mi>T</mi><mo> = </mo><mn>16.1</mn><mo> - </mo><mn>4.64</mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> - </mo><mn>0.27</mn><mo>)</mo><mo> + </mo><msup><mrow><mn>0.09</mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> - </mo><mn>0.27</mn><mo>)</mo></mrow><mn>2</mn></msup></math></div>
+		<p>where <i>T</i> is temperature (°C), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope composition of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope composition of the water in which it was precipitated (&#8240; VSMOW). Much of the difficulty in converting &delta;<sup>18</sup>O<sub><i>c</i></sub> to temperature arises from the requirement of knowing &delta;<sup>18</sup>O<sub><i>w</i></sub>, which may vary on both global and local scales. This tool implements multiple published methods of estimating &delta;<sup>18</sup>O<sub><i>w</i></sub>, as well as correcting for carbonate-ion effects on &delta;<sup>18</sup>O<sub><i>c</i></sub> (see below).</p>
+		<p><b>NOTE:</b> While this tool can perform a variety of corrections, you are still responsible for pre-screening your data for diagenetic alteration or other external biases. For example, use of &delta;<sup>18</sup>O data from foraminifera must consider factors such as diagenetic recrystallization, depth habitat, shell size, and the presence of gametogenic calcite. For a review, see <a href="#pearson">Pearson (2012)</a>.</p>
+		
+		<h3>Calibrations</h3>
+		<p>A variety of calibrations are provided. The choice of calibration is up to the user; it is generally best practice to identify those listed calibrations which are most specific to your use-case (e.g., species being measured) and then review the original papers to verify that your use of the calibration is appropriate. Full citations for each calibration are provided on the results page. The tool will warn you if your &delta;<sup>18</sup>O data are outside the valid range for the calibration, but may not warn about other special considerations.</p>
+		<p>In the absence of a calibration specific to your use-case, some common calibrations in the literature are:</p>
+		<ul>
+			<li>Inorganic calcite or generic "equilibrium" temperatures: Kim & O'Neil (1997)</li>
+			<li>Planktonic foraminifera being used for sea-surface temperatures (SSTs): bayfox</li>
+			<li>Planktonic foraminifera from the mixed layer: Bemis et al. (1998) <i>O. universa</i> mean</li>
+			<li>Epifaunal benthic foraminifera: Marchitto et al. (2014) <i>Cibicidoides</i> + <i>Planulina</i></li>
+		</ul>
+		
+		<h3>Site age</h3>
+		<p>Site ages are required by several correction methods. A single age may be specified for the entire dataset, or sample-specific ages may be given as an <code>age</code> column in the datasheet (see the example at the top of the <a href=index.html>converter page</a>). All ages are given in millions of years ago.</p>
+		<p>The <code>Timescale</code> option specifies which age datums to use when pulling data from internal datasets (such as global seawater &delta;<sup>18</sup>O reconstructions). To avoid inconsistencies, you should select the same timescale used for your own data's ages. (Internal datasets are converted between timescales by linear interpolation between magnetochron boundary ages, following the method used in the classic <a href="https://www.odsn.de/odsn/services/conv_ts/conv_ts.html">OSDN timescale tool</a>; the timescale of your own data will not be modified.)</p>
+		
+		<h3>Site location</h3>
+		<p>Site locations are required by several correction methods. A single latitude/longitude may be specified for the entire dataset, or sample-specific latitudes/longitudes may be given as <code>lat</code> and <code>long</code> columns in the datasheet (see the example at the top of the <a href=index.html>converter page</a>). All latitudes/longitudes are decimal, i.e., 16&deg; 30' E = 16.5, 16&deg; 30' W = &ndash;16.5, 32&deg; 45' N = 32.75, 32&deg; 45' S = &ndash;32.75.</p>
+		<p>The tool may optionally perform paleocoordinate rotations to estimate site locations when the carbonates were precipitated, using given <code>age</code> information. Paleocoordinate rotations are performed using the <a href="https://www.gplates.org/">GPlates</a> web API, with ages rounded to the nearest 100 ka to reduce the number of API calls. If you wish to manually specify paleocoordinates (e.g., based on a different plate reconstruction), give the appropriate coordinates in the <code>lat</code> and <code>long</code> fields and specify <code>none</code> for the paleocoordinate adjustment. (Note that performing paleocoordinate rotations can cause the tool to run significantly slower, as it must wait for GPlates to respond.)</p>
+		
+		<h3>Global water &delta;<sup>18</sup>O ('ice volume' effect)</h3>
+		<p>Because polar precipitation is enriched in <sup>16</sup>O, &delta;<sup>18</sup>O<sub>w</sub> varies globally with polar ice volume / sea level (for a review, see <a href="#sharp">Sharp, 2017</a>). You may specify &delta;<sup>18</sup>O<sub>w</sub> manually or select one of several included water &delta;<sup>18</sup>O<sub>w</sub> datasets to automatically estimate it from each sample's <code>age</code> field. These datasets are typically constructed by assuming that the benthic &delta;<sup>18</sup>O record reflects a combination of temperature and ice volume, and then subtracting out an independent record of temperature (e.g., Mg/Ca-based bottom-water temperatures) or ice volume (e.g., a geologic record of sea level such as NJSL) to determine the residual &delta;<sup>18</sup>O<sub>w</sub>. Each of these records has different limitations, so you should review the original papers to verify that your use-case is appropriate. Full citations for each dataset are provided on the results page. The tool will warn you if your ages are outside the valid range for the dataset, but may not warn about other special considerations.</p>
+		<p>The default option is currently the Rohling et al. (2021) CENOGRID-based record, which was constructed by subtracting a high-resolution, astronomically-tuned benthic &delta;<sup>18</sup>O stack (<a href="#westerhold">Westerhold et al. 2020</a>) from a multi-proxy sea-level reconstruction (<a href="#rohling">Rohling et al. 2021</a>). This record is appropriate for general marine samples back to 40 Ma and is probably the highest-resolution record of this interval available at time of publication.</p>
+		
+		<h3>Local water &delta;<sup>18</sup>O ('salinity' effect)</h3>
+		<p>In addition to global variation, &delta;<sup>18</sup>O<sub>w</sub> also varies spatially with evaporation and local hydrography. This variation broadly covaries with salinity, so it is often referred to as the 'salinity effect' (for a review, see <a href="#sharp">Sharp, 2017</a>). This effect has traditionally been difficult to account for; this tool provides several methods from the literature, which are described in the sections below.</p>
+		<p>Both global and local corrections are applied simultaneously, with the local correction dataset being normalized relative to 0&permil; to reflect local deviations from global &delta;<sup>18</sup>O<sub>w</sub>. That is,</p>
+		<div class='math'><math><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mi></msub><mo> = </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w (global)</mi></msub><mo> + </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w (local)</mi></msub></math></div>
+		<p>Both a global and local correction are therefore required to fully determine &delta;<sup>18</sup>O<sub>w</sub> for each sample. (The exception is the modern ocean, where mean global &delta;<sup>18</sup>O<sub>w</sub> is close to 0&permil;, so only a local correction is required.)</p>
+		<p>For methods which rely on geographic datasets (such as <a href="#legrande">LeGrande & Schmidt 2006</a>), you may specify how many degrees latitude/longitude to average over. For instance, if the averaging distance is 5°, a sample at 110°E 15°N would take the mean &delta;<sup>18</sup>O<sub>w</sub> within the range 105°E&ndash;115°E, 10°N&ndash;20°N. This is useful to get a better sense of the regional mean &delta;<sup>18</sup>O<sub>w</sub> when the exact paleocoordinates or local hydrography may not be known. If no valid &delta;<sup>18</sup>O<sub>w</sub> values are available within the specified range (such as when the paleocoordinates fall on land in the dataset), this calculation will return <code>NaN</code> (Not a Number) and the temperature conversion for that sample will fail. Alternately, specifying a distance of 0° will use only the nearest point (by great circle distance) for which &delta;<sup>18</sup>O<sub>w</sub> is defined, which should never return <code>NaN</code>.</p>
+		<h4>Modern/glacial data</h4>
+		<p>For samples from intervals with climate and paleogeography similar to the modern, it may appropriate to simply use modern local &delta;<sup>18</sup>O<sub>w</sub>. A subset of the <a href="#legrande">LeGrande & Schmidt 2006</a> modern interpolated &delta;<sup>18</sup>O<sub>w</sub> maps are provided for this purpose. Select the water depth most appropriate for your sample. A surface dataset for the Last Glacial Maximum are also provided (<a href="#tierney">Tierney et al. 2020</a>).</p>
+		<h4>Latitudinal methods</h4>
+		<p>&delta;<sup>18</sup>O<sub>w</sub> broadly covaries with latitude, so a reasonable approximation of &delta;<sup>18</sup>O<sub>w</sub> can be produced from paleolatitude alone. This tool provides two such approximation:</p>
+		<ul>
+		<li>The classic latitude-only polynomial from <a href="#zachos">Zachos et al. (1994)</a> Eq. 1, fit from modern Southern Hemisphere &delta;<sup>18</sup>O<sub>w</sub>. This correction is common in the literature but does not account for the effect of climate on the latitudinal &delta;<sup>18</sup>O<sub>w</sub> gradient, so it should be applied with caution to data from climatic intervals significantly different than the modern. Valid for 0&ndash;70&deg;S (although it is also used globally in the literature).</li>
+		<li>The updated latitude-only method from <a href="#hollis">Hollis et al. (2019)</a>, which takes the median modern &delta;<sup>18</sup>O<sub>w</sub> from the upper 50m of seawater in the 10&deg; latitudinal band containing the site, using the <a href="#legrande">LeGrande & Schmidt (2006)</a> dataset. Valid globally but may produce unreliable results at high northern latitudes.</li>
+		<li>The climate-dependent polynomial from <a href="#gaskell">Gaskell et al. (2022)</a> Eq. S9, fit from a compilation of modern data and GCM simulations. This correction considers both latitude and the modeled effect of global temperature on the &delta;<sup>18</sup>O<sub>w</sub> gradient, so it requires a bottom-water temperature record in addition to sample latitudes. Valid for 30&deg;N&ndash;90&deg;S.</li>
+		</ul>
+		<p>None of these methods perform well at high northern latitudes, where the more complex basin geography can cause large local variations in &delta;<sup>18</sup>O<sub>w</sub> (see <a href="#zachos">Zachos et al. 1994</a>, <a href="#gaskell">Gaskell et al. 2022</a>).</p>
+		<h4>Spatial method</h4>
+		<p><a href="#gaskell">Gaskell et al. (2022)</a> introduced a method for estimating &delta;<sup>18</sup>O<sub>w</sub> from isotope-enabled GCM simulations, allowing explicit consideration of paleogeography and climate state. For details on this method, see the original publication; briefly, surface &delta;<sup>18</sup>O<sub>w</sub> values are taken from a suite of GCM runs with variable <i>p</i>CO<sub>2</sub>, representing different possible climate states for a given paleogeography. For improved precision, &delta;<sup>18</sup>O<sub>w</sub> is interpolated between these runs using natural cubic splines, using bottom-water temperature to define where each sample falls on these splines. This method therefore requires a bottom-water temperature record in addition to sample latitudes/longitudes.</p>
+		<p>This method is valid globally, subject to the appropriateness of the paleogeography in the available datasets.</p>
+		
+		<h3>Carbonate ion effects</h3>
+		<p>The &delta;<sup>18</sup>O of many carbonates covaries negatively with water [CO<sub>3</sub><sup>2-</sup>] and/or pH (see <a href="#spero">Spero et al. 1997</a> and others), potentially biasing temperature reconstructions. This tool can automatically adjust &delta;<sup>18</sup>O<sub>c</sub> for changes in [CO<sub>3</sub><sup>2-</sup>] based on empirical measurements of the slope of this relationship and a record of seawater [CO<sub>3</sub><sup>2-</sup>].</p>
+		<p>Note that the [CO<sub>3</sub><sup>2-</sup>] records presently included have a relatively coarse resolution, so they are not appropriate for simulating changes in seawater carbonate chemistry over (e.g.) interglacial timescales. Spatial and depth variation in [CO<sub>3</sub><sup>2-</sup>] is also not considered. As an alternative, you may specify [CO<sub>3</sub><sup>2-</sup>] manually.</p>
+		
+		<h2>Demonstration dataset</h2>
+		<p>As a demonstration, consider a dataset of <i>Trilobatus sacculifer</i> &delta;<sup>18</sup>O data from ODP 999A in the Caribbean (<a href="#schepper">de Schnepper et al., 2013</a>). A .csv file of this dataset is provided <a href="./data/de_schepper_2013_sacculifer.csv">here</a>. Use the following options:</p>
+		<ul>
+			<li>Calibration: Foram SST - bayfox T. sacculifer</li>
+			<li>Age: (leave blank to pull from datasheet)</li>
+			<li>Timescale: GTS2004</li>
+			<li>Decimal latitude: 12.7440</li>
+			<li>Decimal longitude: -78.7393</li>
+			<li>Paleocoordinate adjustment: GPlates Web Service</li>
+			<li>Water &delta;<sup>18</sup>O record: Rohling et al. 2021 CENOGRID</li>
+			<li>Correction method: Latitudinal w/climate (Gaskell et al. 2022)</li>
+			<li>Benthic temperature: Rohling et al. 2021 CENOGRID</li>
+			<li>Correction slope: Planktic Foram - T. sacculifer</li>
+			<li>[CO<sub>3</sub><sup>2-</sup>] record: Zeebe & Tyrrell (2019)</li>
+		</ul>
+		<p>The resulting temperatures should look like <a href="./data/de_schepper_2013_sacculifer_converted.csv">this file.</a></p>
+
+		<h2>Contact and updates</h2>
+		<p>Inquiries may be directed to <a href="https://www.danielgaskell.com">Daniel E. Gaskell</a>, the current maintainer of this tool. Source code is available on <a href="https://www.github.com/danielgaskell/d18O">GitHub</a>.</p>
+		
+		<h2>References cited</h2>
+		<ul>
+			<li class='citation'><a id="gaskell">Gaskell, D.E., Huber, M., O’Brien, C.L., Inglis, G.N., Acosta, R.P., Poulsen, C.J., and Hull, P.M., 2022, The latitudinal temperature gradient and its climate dependence as inferred from foraminiferal &delta;<sup>18</sup>O over the past 95 million years: Proceedings of the National Academy of Sciences, v. 119, p. e2111332119, <a href="https://doi.org/10.1073/pnas.2111332119">doi:10.1073/pnas.2111332119</a>.</a></li>
+			<li class='citation'><a id="hollis">Hollis, C.J. et al., 2019, The DeepMIP contribution to PMIP4: methodologies for selection, compilation and analysis of latest Paleocene and early Eocene climate proxy data, incorporating version 0.1 of the DeepMIP database: Geoscientific Model Development, v. 12, p. 3149–3206, <a href="https://doi.org/10.5194/gmd-12-3149-20195">doi:10.5194/gmd-12-3149-20195</a>.</a></li>
+			<li class='citation'><a id="kim">Kim, S.-T., and O'Neil, J.R., 1997, Equilibrium and nonequilibrium oxygen isotope effects in synthetic carbonates: Geochimica et Cosmochimica Acta, v. 61, p. 3461–3475, <a href="https://doi.org/10.1016/S0016-7037(97)00169-5">doi:10.1016/S0016-7037(97)00169-5</a>.</a></li>
+			<li class='citation'><a id="legrande">LeGrande, A.N., and Schmidt, G.A., 2006, Global gridded data set of the oxygen isotopic composition in seawater: Geophysical Research Letters, v. 33, <a href="https://doi.org/10.1029/2006GL026011">doi:10.1029/2006GL026011</a>.</a></li>
+			<li class='citation'><a id="pearson">Pearson, P.N., 2012, Oxygen isotopes in foraminifera: Overview and historical review: Paleontological Society Papers, v. 18, p. 1–38, <a href="https://doi.org/10.1017/S1089332600002539">doi:10.1017/S1089332600002539</a>.</a></li>
+			<li class='citation'><a id="rohling">Rohling, E.J., Yu, J., Heslop, D., Foster, G.L., Opdyke, B., and Roberts, A.P., 2021, Sea level and deep-sea temperature reconstructions suggest quasi-stable states and critical transitions over the past 40 million years: Science Advances, v. 7, p. eabf5326, <a href="https://doi.org/10.1126/sciadv.abf5326">doi:10.1126/sciadv.abf5326</a>.</a></li>
+			<li class='citation'><a id="schepper">de Schepper, S., Groeneveld, J., Naafs, B.D.A., Van Renterghem, C., Hennissen, J.A.I., Head, M.J., and Louwye, S., 2013, Oxygen isotope records of foraminifera, and alkenone and Mg/Ca-based SST estimates for ODP Hole 165-999A: In supplement to: De Schepper, Stijn; Groeneveld, Jeroen; Naafs, Bernhard David A; Van Renterghem, Cédéric; Hennissen, Jan A I; Head, Martin J; Louwye, Stephen; Fabian, Karl (2013): Northern Hemisphere glaciation during the globally warm early Late Pliocene. PLoS ONE, 8(12), e81508, <a href="https://doi.org/10.1594/PANGAEA.804671">10.1594/PANGAEA.804671</a>.</a></li>
+			<li class='citation'><a id="sharp">Sharp, Z., 2017, Principles of Stable Isotope Geochemistry, 2nd Edition: University of New Mexico: Open Textbooks, 416 p., <a href="https://doi.org/10.25844/h9q1-0p82">doi:10.25844/h9q1-0p82</a>.</a></li>
+			<li class='citation'><a id="spero">Spero, H.J., Bijma, J., Lea, D.W., and Bemis, B.E., 1997, Effect of seawater carbonate concentration on foraminiferal carbon and oxygen isotopes: Nature, v. 390, p. 497–500, <a href="https://doi.org/10.1038/37333">doi:10.1038/37333</a>.</a></li>
+			<li class='citation'><a id="tierney">Tierney, J.E., Zhu, J., King, J., Malevich, S.B., Hakim, G.J., and Poulsen, C.J., 2020, Glacial cooling and climate sensitivity revisited: Nature, v. 584, p. 569–573, <a href="https://doi.org/10.1038/s41586-020-2617-x">doi:10.1038/s41586-020-2617-x</a>.</a></li>
+			<li class='citation'><a id="westerhold">Westerhold, T. et al., 2020, An astronomically dated record of Earth’s climate and its predictability over the last 66 million years: Science, v. 369, p. 1383–1387, <a href="https://doi.org/10.1126/science.aba6853">doi:10.1126/science.aba6853</a>.</a></li>
+			<li class='citation'><a id="zachos">Zachos, J.C., Stott, L.D., and Lohmann, K.C., 1994, Evolution of Early Cenozoic marine temperatures: Paleoceanography, v. 9, p. 353–387, <a href="https://doi.org/10.1029/93PA03266">doi:10.1029/93PA03266</a>.</a></li>
+		</ul>
+	</div>
+</body>
+</html>

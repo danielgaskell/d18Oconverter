@@ -1,0 +1,142 @@
+html, body {
+	padding:0px;
+	margin:0px;
+	line-height:125%;
+}
+code {
+	font-size:105%;
+}
+sup {
+	vertical-align:top;
+	position:relative;
+	top:-0.25em;
+	font-size:75%;
+}
+sub {
+	vertical-align:bottom;
+	position:relative;
+	bottom:-0.33em;
+	font-size:75%;
+}
+h1 {
+	background:rgb(2,0,36);
+	background:linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+	color:white;
+	margin:0px;
+	padding:10px 10px 15px 15px;
+}
+ul.tabbar {
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+	height:45px;
+	overflow:hidden;
+	background:rgb(255,255,235);
+	background:linear-gradient(180deg, rgba(255,255,235,1) 0%, rgba(223,222,174,1) 100%);
+}
+ul.tabbar li {
+	float:left;
+}
+ul.tabbar li a {
+	color:black;
+	display:block;
+	font-weight:bold;
+	font-family:sans-serif;
+	text-align:center;
+	text-decoration:none;
+	padding:14px 16px;
+	height:45px;
+}
+ul.tabbar li a.activetab {
+	background:rgb(215,215,199);
+	background:linear-gradient(180deg, rgba(215,215,199,1) 0%, rgba(187,186,147,1) 100%);
+}
+ul.tabbar li a:hover {
+	background:rgb(215,215,199);
+	background:linear-gradient(180deg, rgba(215,215,199,1) 0%, rgba(187,186,147,1) 100%);
+}
+.shadow {
+	height:10px;
+	background:rgb(166,166,166);
+	background:linear-gradient(180deg, rgba(166,166,166,1) 0%, rgba(199,199,199,1) 27%, rgba(255,255,255,1) 100%);
+}
+
+.inputform {
+	margin:10px;
+}
+
+.hint {
+	font-style:italic;
+	font-size:80%;
+}
+.example {
+	margin-left:25px;
+}
+.inputform {
+	width:650px;
+}
+.warning {
+	font-weight:bold;
+	color:red;
+}
+.citation {
+	font-style:italic;
+}
+.errorbox {
+	background-color:pink;
+	border:1px darkred solid;
+	padding:10px;
+	margin-bottom:10px;
+}
+.cautionbox {
+	background-color:khaki;
+	border:1px darkgoldenrod solid;
+	padding:10px;
+	margin-bottom:10px;
+}
+.resultstable {
+	border-collapse: collapse;
+}
+.resultstable td, .resultstable th {
+	border:1px solid #ddd;
+	padding:8px;
+}
+.resultstable tr:nth-child(even) {
+	background-color:#f2f2f2;
+}
+.resultstable tr.rowerror {
+	background-color:pink;
+}
+.resultstable tr.rowcaution {
+	background-color:khaki;
+}
+.resultstable th {
+	padding-top:12px;
+	padding-bottom:12px;
+	text-align:left;
+	background-color:#04AA6D;
+	color:white;
+}
+.tderror {
+	color:red;
+}
+fieldset {
+	padding:0px 15px 0px 15px;
+	margin-bottom:15px;
+}
+.math {
+	display:block;
+	margin-left:40px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.disabled {
+	color:gray;
+}
+
+legend {
+	font-weight:bold;
+}
+.content {
+	margin:10px;
+}

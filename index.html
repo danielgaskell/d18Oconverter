@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--
+  Copyright (c) 2022, Daniel E. Gaskell and Pincelli M. Hull.
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+    - The above copyright notice and this permission notice shall be included
+      in all copies or substantial portions of the Software.
+    - Any publications making use of the Software or any substantial portions
+      thereof shall cite the Software's original publication:
+
+          [FIXME insert publication here]
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>&delta;¹⁸O to temperature converter</title>
+	<link rel="stylesheet" href="style.css">
+	<script>
+		function updateDisabled(input) {
+			switch (input.id) {
+				case "ice":
+					switch (input.value) {
+						case "fixed":
+							document.getElementById("d18Osw").disabled = false;
+							document.getElementById("d18Oswlabel").className = "";
+							break;
+						default:
+							document.getElementById("d18Osw").disabled = true;
+							document.getElementById("d18Oswlabel").className = "disabled";
+							break;
+					}
+					break;
+				case "spatial":
+					switch (input.value) {
+						case "none":
+							document.getElementById("benthic").disabled = true;
+							document.getElementById("benthicraw").disabled = true;
+							document.getElementById("gcm").disabled = true;
+							document.getElementById("benthiclabel").className = "disabled";
+							document.getElementById("benthicrawlabel").className = "disabled";
+							document.getElementById("gcmlabel").className = "disabled";
+							document.getElementById("square").disabled = true;
+							document.getElementById("squarelabel").className = "disabled";
+							break;
+						case "legrandemixed": case "legrande0": case "legrande50": case "legrande100": case "legrande200": case "legrande500": case "legrande1000": case "legrande1500": case "legrande2000": case "legrande3000": case "legrande4000": case "legrande5000": case "tierney_hol": case "tierney_lgm":
+							document.getElementById("benthic").disabled = true;
+							document.getElementById("benthicraw").disabled = true;
+							document.getElementById("gcm").disabled = true;
+							document.getElementById("benthiclabel").className = "disabled";
+							document.getElementById("benthicrawlabel").className = "disabled";
+							document.getElementById("gcmlabel").className = "disabled";
+							document.getElementById("square").disabled = false;
+							document.getElementById("squarelabel").className = "";
+							break;
+						case "zachos": case "hollis":
+							document.getElementById("benthic").disabled = true;
+							document.getElementById("benthicraw").disabled = true;
+							document.getElementById("gcm").disabled = true;
+							document.getElementById("benthiclabel").className = "disabled";
+							document.getElementById("benthicrawlabel").className = "disabled";
+							document.getElementById("gcmlabel").className = "disabled";
+							document.getElementById("square").disabled = true;
+							document.getElementById("squarelabel").className = "disabled";
+							break;
+						case "gaskell_poly":
+							document.getElementById("benthic").disabled = false;
+							updateDisabled(document.getElementById("benthic"));
+							document.getElementById("gcm").disabled = true;
+							document.getElementById("benthiclabel").className = "";
+							document.getElementById("gcmlabel").className = "disabled";
+							document.getElementById("square").disabled = true;
+							document.getElementById("squarelabel").className = "disabled";
+							break;
+						case "gaskell_cesm":
+							document.getElementById("benthic").disabled = false;
+							updateDisabled(document.getElementById("benthic"));
+							document.getElementById("gcm").disabled = false;
+							document.getElementById("benthiclabel").className = "";
+							document.getElementById("gcmlabel").className = "";
+							document.getElementById("square").disabled = false;
+							document.getElementById("squarelabel").className = "";
+							break;
+					}
+					break;
+				case "benthic":
+					switch (input.value) {
+						case "fixed":
+							document.getElementById("benthicraw").disabled = false;
+							document.getElementById("benthicrawlabel").className = "";
+							break;
+						default:
+							document.getElementById("benthicraw").disabled = true;
+							document.getElementById("benthicrawlabel").className = "disabled";
+							break;
+					}
+					break;
+				case "co3":
+					switch (input.value) {
+						case "none":
+							document.getElementById("co3record").disabled = true;
+							document.getElementById("co3raw").disabled = true;
+							document.getElementById("co3recordlabel").className = "disabled";
+							document.getElementById("co3rawlabel").className = "disabled";
+							break;
+						default:
+							document.getElementById("co3record").disabled = false;
+							document.getElementById("co3recordlabel").className = "";
+							updateDisabled(document.getElementById("co3record"));
+							break;
+					}
+					break;
+				case "co3record":
+					switch (input.value) {
+						case "fixed":
+							document.getElementById("co3raw").disabled = false;
+							document.getElementById("co3rawlabel").className = "";
+							break;
+						default:
+							document.getElementById("co3raw").disabled = true;
+							document.getElementById("co3rawlabel").className = "disabled";
+							break;
+					}
+					break;
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>&delta;<sup>18</sup>O to temperature converter</h1>
+	<ul class="tabbar">
+		<li><a href="index.html" class="activetab">Convert data</a></li>
+		<li><a href="about.html">Information</a></li>
+	</ul>
+	<div class="shadow"></div>
+	<form class="inputform" action="proxy.php" method="post" enctype="multipart/form-data">
+		<fieldset>
+			<legend>Data</legend>
+			<p>Paste your &delta;<sup>18</sup>O data below (&#8240; VPDB, one measurement per line). If additional columns beyond &delta;<sup>18</sup>O are required, separate them with commas and provide column names in the first row, i.e.:</p>
+			<pre class="example">
+d18O,age,lat,long
+-1.23,23.21,-65.16,1.20
+-0.92,24.55,-65.16,1.20
+0.45,26.03,-65.16,1.20</pre>
+			<textarea id="data" name="data" rows="10" cols="75"></textarea>
+			<p>You may also upload a datasheet in <code>.csv</code> format below:</p>
+			<p><input type="file" id="datasheet" name="filename"></p>
+		</fieldset>
+		<fieldset>
+			<legend>Temperature conversion</legend>
+			<p>
+				<label id="calibrationlabel" for="calibration">Calibration:</label>
+				<select id="calibration" name="calibration" onchange="updateDisabled(this)">
+					<option value="urey">Inorganic Calcite (Urey 1947)</option>
+					<option value="mccrea">Inorganic Calcite (McCrea 1950)</option>
+					<option value="oneil">Inorganic Calcite (O'Neil et al. 1969)</option>
+					<option value="kimoneil">Inorganic Calcite (Kim & O'Neil 1997)</option>
+					<option value="zhouzheng">Inorganic Aragonite (Zhou & Zheng 2003)</option>
+					<option value="kim_arag">Inorganic Aragonite (Kim et al. 2007)</option>
+					<option value="bayfox_pooled" selected>Foram SST - bayfox pooled (Malevich et al. 2019)</option>
+					<option value="bayfox_ruber">Foram SST - bayfox G. ruber (Malevich et al. 2019)</option>
+					<option value="bayfox_sac">Foram SST - bayfox T. sacculifer (Malevich et al. 2019)</option>
+					<option value="bayfox_bul">Foram SST - bayfox G. bulloides (Malevich et al. 2019)</option>
+					<option value="bayfox_inc">Foram SST - bayfox N. incompta (Malevich et al. 2019)</option>
+					<option value="bayfox_pac">Foram SST - bayfox N. pachyderma (Malevich et al. 2019)</option>
+					<option value="mulitza_pool">Planktic Foram - pooled mixed-layer (Mulitza et al. 2004)</option>
+					<option value="bemis_bul11">Planktic Foram - G. bulloides 11-chamber (Bemis et al. 1998)</option>
+					<option value="bemis_bul12">Planktic Foram - G. bulloides 12-chamber (Bemis et al. 1998)</option>
+					<option value="bemis_bul13">Planktic Foram - G. bulloides 13-chamber (Bemis et al. 1998)</option>
+					<option value="mulitza_bul">Planktic Foram - G. bulloides (Mulitza et al. 2003)</option>
+					<option value="bouvier_men">Planktic Foram - G. menardii (Bouvier-Soumagnac & Duplessy 1985)</option>
+					<option value="farmer_men">Planktic Foram - G. menardii (Farmer et al. 2007)</option>
+					<option value="farmer_rubp">Planktic Foram - G. ruber pink (Farmer et al. 2007)</option>
+					<option value="mulitza_rub">Planktic Foram - G. ruber white (Mulitza et al. 2003)</option>
+					<option value="farmer_rubw">Planktic Foram - G. ruber white (Farmer et al. 2007)</option>
+					<option value="bouvier_dut">Planktic Foram - N. dutertrei (Bouvier-Soumagnac & Duplessy 1985)</option>
+					<option value="farmer_dut">Planktic Foram - N. dutertrei (Farmer et al. 2007)</option>
+					<option value="mulitza_pac">Planktic Foram - N. pachyderma (Mulitza et al. 2003)</option>
+					<option value="farmer_tum">Planktic Foram - N. tumida (Farmer et al. 2007)</option>
+					<option value="bouvier_orb1">Planktic Foram - O. universa cultured (Bouvier-Soumagnac & Duplessy 1985)</option>
+					<option value="bouvier_orb2">Planktic Foram - O. universa Ind.Oce. (Bouvier-Soumagnac & Duplessy 1985)</option>
+					<option value="bemis_mean">Planktic Foram - O. universa mean (Bemis et al. 1998)</option>
+					<option value="bemis_hl">Planktic Foram - O. universa high-light (Bemis et al. 1998)</option>
+					<option value="bemis_ll">Planktic Foram - O. universa low-light (Bemis et al. 1998)</option>
+					<option value="farmer_orb">Planktic Foram - O. universa (Farmer et al. 2007)</option>
+					<option value="farmer_obl">Planktic Foram - P. obliquiloculata (Farmer et al. 2007)</option>
+					<option value="erezluz">Planktic Foram - T. sacculifer (Erez & Luz 1983)</option>
+					<option value="mulitza_sac">Planktic Foram - T. sacculifer (Mulitza et al. 2003)</option>
+					<option value="spero_sac">Planktic Foram - T. sacculifer (Spero et al. 2003)</option>
+					<option value="farmer_sac">Planktic Foram - T. sacculifer (Farmer et al. 2007)</option>
+					<option value="barras_150">Benthic Foram - B. marginata 150-200 μm (Barras et al. 2010)</option>
+					<option value="barras_200">Benthic Foram - B. marginata 200-250 μm (Barras et al. 2010)</option>
+					<option value="barras_250">Benthic Foram - B. marginata >250 μm (Barras et al. 2010)</option>
+					<option value="lynch">Benthic Foram - Cibicidoides + Planulina (Lynch-Stieglitz et al. 1999)</option>
+					<option value="marchitto_cib">Benthic Foram - Cibicidoides + Planulina (Marchitto et al. 2014)</option>
+					<option value="duplessy">Benthic Foram - Cibicides spp. (Duplessey et al. 2002)</option>
+					<option value="grossman_ele">Benthic Foram - H. elegans (Grossman & Hu 1986)</option>
+					<option value="marchitto_ele">Benthic Foram - H. elegans (Marchitto et al. 2014)</option>
+					<option value="shackleton">Benthic Foram - Uvigerina spp. (Shackleton 1974)</option>
+					<option value="marchitto_per">Benthic Foram - Uvigerina peregrina (Marchitto et al. 2014)</option>
+					<option value="reynaud_acro">Coral - Acropora spp. (Reynaud-Vaganay et al. 1999)</option>
+					<option value="juillet">Coral - Porites spp. (Juillet-Leclerc & Schmidt 2001)</option>
+					<option value="reynaud_sty">Coral - Stylophora pistillata (Reynaud-Vaganay et al. 1999)</option>
+					<option value="bohm">Sponge - Ceratoporella nicholsoni (Böhm et al. 2000)</option>
+					<option value="rosenheim">Sponge - Ceratoporella nicholsoni (Rosenheim et al. 2009)</option>
+					<option value="tremaine">Speleothem - Inorganic cave calcite (Tremaine et al. 2011)</option>
+					<option value="epstein">Mollusk - Mixed, mainly mollusks (Epstein et al. 1953)</option>
+					<option value="grossman_mol">Mollusk - Mixed (Grossman & Hu 1986)</option>
+					<option value="white">Mollusk - Lymnaea peregra (White et al. 1999)</option>
+					<option value="stormsuke">Otolith - Arctic/Brook Charr (Storm-Suke et al. 2007)</option>
+					<option value="godiksen">Otolith - Arctic Charr (Godiksen et al. 2010)</option>
+					<option value="hoie">Otolith - Atlantic Cod (Høie et al. 2004)</option>
+					<option value="thorrold">Otolith - Atlantic Croaker (Thorrold et al. 1997)</option>
+					<option value="willmes">Otolith - Delta Smelt (Willmes et al. 2019)</option>
+					<option value="patterson">Otolith - Freshwater (Patterson et al. 1993)</option>
+					<option value="geffen">Otolith - Juvenile Plaice (Geffen 2012)</option>
+				</select>
+			</p>
+		</fieldset>
+		<fieldset>
+			<legend>Water &delta;<sup>18</sup>O</legend>
+			<fieldset>
+				<legend>Site age</legend>
+				<p>
+					<label id="agelabel" for="age">Age (million years ago):</label>
+					<input id="age" name="age">
+				</p>
+				<p class="hint">Leave blank to pull age from <code>age</code> column of datasheet.</p>
+				<p>
+					<label id="timescalelabel" for="timescale">Timescale:</label>
+					<select id="timescale" name="timescale" onchange="updateDisabled(this)">
+						<option value="GTS2004">GTS2004 (Gradstein et al. 2005)</option>
+						<option value="GTS2012">GTS2012 (Gradstein et al. 2012)</option>
+						<option value="GTS2016">GTS2016 (Ogg et al. 2016)</option>
+						<option value="GTS2020" selected>GTS2020 (Gradstein et al. 2020)</option>
+					</select>
+				</p>
+			</fieldset>
+			<fieldset>
+				<legend>Site location</legend>
+				<p>
+					<label id="latlabel" for="lat">Decimal latitude:</label>
+					<input id="lat" name="lat">
+				</p>
+				<p class="hint">Leave blank to pull latitude from <code>lat</code> column of datasheet.</p>
+				<p>
+					<label id="longlabel" for="long">Decimal longitude:</label>
+					<input id="long" name="long">
+				</p>
+				<p class="hint">Leave blank to pull longitude from <code>long</code> column of datasheet.</p>
+				<p>
+					<label id="latlonglabel" for="latlong">Paleocoordinate adjustment:</label>
+					<select id="latlong" name="latlong" onchange="updateDisabled(this)">
+						<option value="none">None</option>
+						<option value="gplates" selected>GPlates Web Service (Müller et al. 2018)</option>
+					</select>
+				</p>
+			</fieldset>
+			<fieldset>
+				<legend>Global water &delta;<sup>18</sup>O ('ice volume' effect)</legend>
+				<p>
+					<label id="icelabel" for="ice">Water &delta;<sup>18</sup>O record:</label>
+					<select id="ice" name="ice" onchange="updateDisabled(this)">
+						<option value="none">No correction</option>
+						<option value="fixed">Fixed (give value below)</option>
+						<option value="icefree">Traditional "ice-free" value (-1&#8240;)</option>
+						<option value="henkes">Proposed Phanerozoic mean (-0.8&#8240;, Henkes et al. 2018)</option>
+						<option value="cramer1">Cramer et al. 2011 S4 (9-108 Ma, NJSL)</option>
+						<option value="cramer2">Cramer et al. 2011 S5 (0-63 Ma, Mg/Ca-d18O)</option>
+						<option value="cramer3">Cramer et al. 2011 S6 (0-63 Ma, Mg/Ca-d18O)</option>
+						<option value="cramer1s">Cramer et al. 2011 S4 smoothed (9-108 Ma, NJSL)</option>
+						<option value="cramer2s">Cramer et al. 2011 S5 smoothed (0-63 Ma, Mg/Ca-d18O)</option>
+						<option value="cramer3s">Cramer et al. 2011 S6 smoothed (0-63 Ma, Mg/Ca-d18O)</option>
+						<option value="miller">Miller et al. 2020 (0-66 Ma, Mg/Ca-d18O)</option>
+						<option value="modestou">Modestou et al. 2020 (11-16 Ma, &Delta;47-d18O)</option>
+						<option value="rohling1" selected>Rohling et al. 2021 CENOGRID (0-40 Ma, multi-proxy)</option>
+						<option value="rohling2">Rohling et al. 2021 LR04 (0-5.3 Ma, multi-proxy)</option>
+						<option value="veizer">Veizer & Prokoph 2015 (0-541 Ma, long-term d18O)</option>
+					</select>
+				</p>
+				<p>
+					<label id="d18Oswlabel" for="d18Osw">Fixed water &delta;<sup>18</sup>O (&#8240; VSMOW):</label>
+					<input id="d18Osw" name="d18Osw">
+				</p>
+			</fieldset>
+			<fieldset>
+				<legend>Local water &delta;<sup>18</sup>O ('salinity' effect)</legend>
+				<p>
+					<label id="spatiallabel" for="spatial">Correction method:</label>
+					<select id="spatial" name="spatial" onchange="updateDisabled(this)">
+						<option value="none">No correction</option>
+						<option value="legrandemixed">Modern mixed layer (LeGrande & Schmidt 2006)</option>
+						<option value="legrande0">Modern at 0m (LeGrande & Schmidt 2006)</option>
+						<option value="legrande50">Modern at 50m (LeGrande & Schmidt 2006)</option>
+						<option value="legrande100">Modern at 100m (LeGrande & Schmidt 2006)</option>
+						<option value="legrande200">Modern at 200m (LeGrande & Schmidt 2006)</option>
+						<option value="legrande500">Modern at 500m (LeGrande & Schmidt 2006)</option>
+						<option value="legrande1000">Modern at 1000m (LeGrande & Schmidt 2006)</option>
+						<option value="legrande1500">Modern at 1500m (LeGrande & Schmidt 2006)</option>
+						<option value="legrande2000">Modern at 2000m (LeGrande & Schmidt 2006)</option>
+						<option value="legrande3000">Modern at 3000m (LeGrande & Schmidt 2006)</option>
+						<option value="legrande4000">Modern at 4000m (LeGrande & Schmidt 2006)</option>
+						<option value="legrande5000">Modern at 5000m (LeGrande & Schmidt 2006)</option>
+						<option value="tierney_hol">Late Holocene surface (Tierney et al. 2020)</option>
+						<option value="tierney_lgm">Last Glacial Maximum surface (Tierney et al. 2020)</option>
+						<option value="zachos">Latitudinal (Zachos et al. 1994)</option>
+						<option value="hollis">Latitudinal (Hollis et al. 2019)</option>
+						<option value="gaskell_poly" selected>Latitudinal w/climate (Gaskell et al. 2022)</option>
+						<option value="gaskell_cesm">Spatial w/climate (Gaskell et al. 2022)</option>
+					</select>
+				</p>
+				<p>
+					<label id="benthiclabel" for="benthic">Benthic temperature:</label>
+					<select id="benthic" name="benthic" onchange="updateDisabled(this)">
+						<option value="none">n/a</option>
+						<option value="fixed">Fixed (give value below)</option>
+						<option value="cramer1">Cramer et al. 2011 S4 (9-108 Ma, NJSL-d18O)</option>
+						<option value="cramer2">Cramer et al. 2011 S5 (0-63 Ma, Mg/Ca)</option>
+						<option value="cramer3">Cramer et al. 2011 S6 (0-63 Ma, Mg/Ca)</option>
+						<option value="cramer1s">Cramer et al. 2011 S4 smoothed (9-108 Ma, NJSL-d18O)</option>
+						<option value="cramer2s">Cramer et al. 2011 S5 smoothed (0-63 Ma, Mg/Ca)</option>
+						<option value="cramer3s">Cramer et al. 2011 S6 smoothed (0-63 Ma, Mg/Ca)</option>
+						<option value="miller">Miller et al. 2020 (0-66 Ma, Mg/Ca)</option>
+						<option value="rohling1" selected>Rohling et al. 2021 CENOGRID (0-40 Ma, SL-d18O)</option>
+						<option value="rohling2">Rohling et al. 2021 LR04 (0-5.3 Ma, SL-d18O)</option>
+					</select>
+				</p>
+				<p>
+					<label id="benthicrawlabel" for="benthicraw">Fixed benthic temperature (°C):</label>
+					<input id="benthicraw" name="benthicraw">
+				</p>
+				<p>
+					<label id="gcmlabel" for="gcm">&delta;<sup>18</sup>O<sub>sw</sub> simulation/dataset:</label>
+					<select id="gcm" name="gcm" onchange="updateDisabled(this)">
+						<option value="gaskell">Miocene - Gaskell et al. (2022) CESMv1.2_CAM5</option>
+						<option value="zhu" selected>Eocene - Zhu et al. (2019) CESMv1.2_CAM5</option>
+					</select>
+				</p>
+				<p>
+					<label id="squarelabel" for="square">Plus/minus degrees lat/long to average (0 for nearest point):</label>
+					<input id="square" name="square" value="5">
+				</p>
+			</fieldset>
+		</fieldset>
+		<fieldset>
+			<legend>Carbonate ion effects</legend>
+			<p>
+				<label id="co3label" for="co3">Correction slope:</label>
+				<select id="co3" name="co3" onchange="updateDisabled(this)">
+					<option value="none">No correction</option>
+					<option value="ziveri_cocco">Coccolithophore - C. leptoporus (Ziveri et al. 2012)</option>
+					<option value="ziveri_dino">Dinoflagellate - T. heimii (Ziveri et al. 2012)</option>
+					<option value="mean" selected>Planktic Foram - mean (Spero et al. 1999)</option>
+					<option value="spero_bul">Planktic Foram - G. bulloides (Spero et al. 1997)</option>
+					<option value="spero_rub">Planktic Foram - G. ruber (Bijma et al. 1999)</option>
+					<option value="spero_orb">Planktic Foram - O. universa (Spero et al. 1997)</option>
+					<option value="spero_sac">Planktic Foram - T. sacculifer (Bijma et al. 1999)</option>
+				</select>
+			</p>
+			<p>
+				<label id="co3recordlabel" for="co3record">[CO<sub>3</sub><sup>2-</sup>] record:</label>
+				<select id="co3record" name="co3record" onchange="updateDisabled(this)">
+					<option value="none">n/a</option>
+					<option value="fixed">Fixed (give value below)</option>
+					<option value="tyrrellzeebe">Tyrrell & Zeebe (2004) (0-100 Ma)</option>
+					<option value="zeebetyrrell" selected>Zeebe & Tyrrell (2019) (0-100 Ma)</option>
+				</select>
+			</p>
+			<p>
+				<label id="co3rawlabel" for="co3raw">Fixed seawater [CO<sub>3</sub><sup>2-</sup>] (μmol/kg):</label>
+				<input id="co3raw" name="co3raw">
+			</p>
+		</fieldset>
+		<input type="submit" value="Convert">
+	</form>
+	<script>
+		updateDisabled(document.getElementById("calibration"));
+		updateDisabled(document.getElementById("timescale"));
+		updateDisabled(document.getElementById("latlong"));
+		updateDisabled(document.getElementById("ice"));
+		updateDisabled(document.getElementById("spatial"));
+		updateDisabled(document.getElementById("benthic"));
+		updateDisabled(document.getElementById("gcm"));
+		updateDisabled(document.getElementById("co3"));
+		updateDisabled(document.getElementById("co3record"));
+	</script>
+</body>
+</html>
