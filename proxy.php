@@ -14,7 +14,9 @@
     - Any publications making use of the Software or any substantial portions
       thereof shall cite the Software's original publication:
 
-          [FIXME insert publication here]
+          Gaskell, D.E., and Hull, P.M., 2022, Technical note: A new online
+		  tool for d18O-temperature conversions: Climate of the Past
+		  Discussions (preprint), doi:10.5194/cp-2022-74.
 
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -255,7 +257,7 @@
 
 	// set up output
 	$description = "";
-	$citations = array("<li class='citation'>Gaskell, D.E., Pincelli M. Hull, 2022. Technical note: A new online tool for &delta;<sup>18</sup>O-temperature conversions: Journal, Volume. doi:10.1109/5.771073FIXME.</li>");
+	$citations = array("<li class='citation'>Gaskell, D.E., Pincelli M. Hull, 2022. Technical note: A new online tool for &delta;<sup>18</sup>O-temperature conversions: Climate of the Past Discussions (preprint, in review). doi:10.5194/cp-2022-74.</li>");
 	$valid_age_start = 0;
 	$valid_age_end = 1e100;
 	$valid_lat_start = -90;
@@ -1170,7 +1172,7 @@
 			if ($valid_temp_start < 15) $valid_temp_start = 15;
 			if ($valid_temp_end > 25) $valid_temp_end = 25;
 			break;
-		case "bemis_bull1":
+		case "bemis_bul11":
 			$description = "the 11-chamber calibration of Bemis et al. (1998) for <i>Globigerina bulloides</i>: "
 						 . "<div class='math'><math><mi>T</mi><mo> = </mo><mn>12.6</mn><mo> - </mo><mn>5.07/mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> - </mo><mn>0.27</mn><mo>)</mo></math></div>"
 						 . "where <i>T</i> is temperature (°C), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VSMOW). "
@@ -1180,7 +1182,7 @@
 			if ($valid_temp_start < 15) $valid_temp_start = 15;
 			if ($valid_temp_end > 24) $valid_temp_end = 24;
 			break;
-		case "bemis_bull2":
+		case "bemis_bul12":
 			$description = "the 12-chamber calibration of Bemis et al. (1998) for <i>Globigerina bulloides</i>: "
 						 . "<div class='math'><math><mi>T</mi><mo> = </mo><mn>13.2</mn><mo> - </mo><mn>4.89/mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> - </mo><mn>0.27</mn><mo>)</mo></math></div>"
 						 . "where <i>T</i> is temperature (°C), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VSMOW). "
@@ -1190,7 +1192,7 @@
 			if ($valid_temp_start < 15) $valid_temp_start = 15;
 			if ($valid_temp_end > 24) $valid_temp_end = 24;
 			break;
-		case "bemis_bull3":
+		case "bemis_bul13":
 			$description = "the 13-chamber calibration of Bemis et al. (1998) for <i>Globigerina bulloides</i>: "
 						 . "<div class='math'><math><mi>T</mi><mo> = </mo><mn>13.6</mn><mo> - </mo><mn>4.77/mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> - </mo><mn>0.27</mn><mo>)</mo></math></div>"
 						 . "where <i>T</i> is temperature (°C), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VSMOW). "
@@ -1309,7 +1311,7 @@
 			$needed['temp_2.5'] = TRUE;
 			$needed['temp_97.5'] = TRUE;
 			break;
-		case "bayfox_rub":
+		case "bayfox_ruber":
 			$description = "the bayfox annual core-top calibration of Malevich et al. (2019) for <i>Globigerinoides ruber</i>. " . $description;
 			array_push($citations, "<li class='citation'>Malevich, S.B., Vetter, L., and Tierney, J.E., 2019, Global Core Top Calibration of &delta;<sup>18</sup>O in Planktic Foraminifera to Sea Surface Temperature: Paleoceanography and Paleoclimatology, v. 34, p. 1292–1315, doi:10.1029/2019PA003576.</li>");
 			mutate($data, "temp_2.5",  function($row) {return  8.6827 - 5.3030*($row['d18O_CO3'] - ($row['d18Osw_global'] + $row['d18Osw_spatial']));});
