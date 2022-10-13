@@ -2,7 +2,7 @@
 
 This repository contains the source code for the online &delta;<sup>18</sup>O-temperature converter tool described in:
 
-> Gaskell, D.E., and Hull, P.M., 2022, Technical note: A new online tool for &delta;<sup>18</sup>O-temperature conversions: Climate of the Past Discussions (preprint, in review), doi:10.5194/cp-2022-74.
+> Gaskell, D.E., and Hull, P.M., 2022, Technical note: A new online tool for &delta;<sup>18</sup>O-temperature conversions: Climate of the Past Discussions (preprint, in review), [doi:10.5194/cp-2022-74](https://cp.copernicus.org/preprints/cp-2022-74/).
 
 The current official online host for the tool is [https://www.danielgaskell.com/d18O](https://www.danielgaskell.com/d18O), although this will likely change in the future. This tool may be freely used to generate data for publications provided this publication (or its subsequent version of record) is appropriately cited.
 
@@ -22,7 +22,7 @@ furnished to do so, subject to the following conditions:
 - Any publications making use of the Software or any substantial portions
   thereof shall cite the Software's original publication:
 
-> Gaskell, D.E., and Hull, P.M., 2022, Technical note: A new online tool for &delta;<sup>18</sup>O-temperature conversions: Climate of the Past Discussions (preprint), doi:10.5194/cp-2022-74.
+> Gaskell, D.E., and Hull, P.M., 2022, Technical note: A new online tool for &delta;<sup>18</sup>O-temperature conversions: Climate of the Past Discussions (preprint), [doi:10.5194/cp-2022-74](https://cp.copernicus.org/preprints/cp-2022-74/).
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
