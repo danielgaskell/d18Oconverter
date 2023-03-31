@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  Copyright (c) 2022, Daniel E. Gaskell and Pincelli M. Hull.
+  Copyright (c) 2023, Daniel E. Gaskell and Pincelli M. Hull.
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -45,7 +45,7 @@
 		<h2>Introduction</h2>
 		<p>This tool converts carbonate &delta;<sup>18</sup>O data to temperatures. It automates the process of applying a number of correction methods which have been developed in the literature, as well as providing convenient access to a range of published species- and scenario-specific calibrations. It also automates two routine but technically complex tasks: performing paleocoordinate rotations and reconciling age datums between required datasets.</p>
 		<p>If you use output from this tool in publications, please cite the following publication:</p>
-		<ul><li class='citation'>Gaskell, D.E., Pincelli M. Hull, 2022. Technical note: A new online tool for &delta;<sup>18</sup>O-temperature conversions: Journal, Volume. doi:10.1109/5.771073FIXME.</li></ul>
+		<ul><li class='citation'>Gaskell, D.E., and Hull, P.M., 2022, Technical note: A new online tool for d18O-temperature conversions: Climate of the Past Discussions (preprint), doi:10.5194/cp-2022-74.</li></ul>
 		<p>The tool output also includes a short summary of the methods used for each run, with citations. This information may be used in publications using this tool, in whole, in part, or in adaptation, subject to the journal's standards. (At a minimum you should cite the references listed in order to give credit to the authors of the underlying datasets and methods used.)</p>
 		
 		<h2>Documentation</h2>
@@ -62,6 +62,7 @@
 			<li>Planktonic foraminifera being used for sea-surface temperatures (SSTs): bayfox</li>
 			<li>Planktonic foraminifera from the mixed layer: Bemis et al. (1998) <i>O. universa</i> mean</li>
 			<li>Epifaunal benthic foraminifera: Marchitto et al. (2014) <i>Cibicidoides</i> + <i>Planulina</i></li>
+			<li>Infaunal benthic foraminifera: Marchitto et al. (2014) recommended method for <i>Uvigerina</i></li>
 		</ul>
 		
 		<h3>Site age</h3>
@@ -81,7 +82,13 @@
 		<p>Both global and local corrections are applied simultaneously, with the local correction dataset being normalized relative to 0&permil; to reflect local deviations from global &delta;<sup>18</sup>O<sub>w</sub>. That is,</p>
 		<div class='math'><math><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mi></msub><mo> = </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w (global)</mi></msub><mo> + </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w (local)</mi></msub></math></div>
 		<p>Both a global and local correction are therefore required to fully determine &delta;<sup>18</sup>O<sub>w</sub> for each sample. (The exception is the modern ocean, where mean global &delta;<sup>18</sup>O<sub>w</sub> is close to 0&permil;, so only a local correction is required.)</p>
-		<p>For methods which rely on geographic datasets (such as <a href="#legrande">LeGrande & Schmidt 2006</a>), you may specify how many degrees latitude/longitude to average over. For instance, if the averaging distance is 5°, a sample at 110°E 15°N would take the mean &delta;<sup>18</sup>O<sub>w</sub> within the range 105°E&ndash;115°E, 10°N&ndash;20°N. This is useful to get a better sense of the regional mean &delta;<sup>18</sup>O<sub>w</sub> when the exact paleocoordinates or local hydrography may not be known. If no valid &delta;<sup>18</sup>O<sub>w</sub> values are available within the specified range (such as when the paleocoordinates fall on land in the dataset), this calculation will return <code>NaN</code> (Not a Number) and the temperature conversion for that sample will fail. Alternately, specifying a distance of 0° will use only the nearest point (by great circle distance) for which &delta;<sup>18</sup>O<sub>w</sub> is defined, which should never return <code>NaN</code>.</p>
+		<p>For methods which rely on geographic datasets (such as <a href="#legrande">LeGrande & Schmidt 2006</a>), you may specify the area to average over. This is useful to get a better sense of the regional mean &delta;<sup>18</sup>O<sub>w</sub> when the exact paleocoordinates or local hydrography may not be known. Three methods are provided:</p>
+		<ul>
+			<li>By degrees latitude/longitude. For instance, if the averaging distance is 5, a sample at 110°E 15°N would take the mean &delta;<sup>18</sup>O<sub>w</sub> of all points in the &delta;<sup>18</sup>O<sub>w</sub> dataset within the range 105°E&ndash;115°E, 10°N&ndash;20°N.</li>
+			<li>By a radius in kilometers. For instance, if the averaging distance is 500, samples will take the mean &delta;<sup>18</sup>O<sub>w</sub> of all points in the &delta;<sup>18</sup>O<sub>w</sub> dataset within 500 km of their site location (by great circle distance).</li>
+			<li>By nearest point. Specifying a distance of 0° will use only the nearest point (by great circle distance) for which &delta;<sup>18</sup>O<sub>w</sub> is defined.</li>
+		</ul>
+		<p>If no valid &delta;<sup>18</sup>O<sub>w</sub> values are available within the specified range (such as when the paleocoordinates fall on land in the dataset), this calculation will return <code>NaN</code> (Not a Number) and the temperature conversion for that sample will fail.</p>
 		<h4>Modern/glacial data</h4>
 		<p>For samples from intervals with climate and paleogeography similar to the modern, it may appropriate to simply use modern local &delta;<sup>18</sup>O<sub>w</sub>. A subset of the <a href="#legrande">LeGrande & Schmidt 2006</a> modern interpolated &delta;<sup>18</sup>O<sub>w</sub> maps are provided for this purpose. Select the water depth most appropriate for your sample. A surface dataset for the Last Glacial Maximum are also provided (<a href="#tierney">Tierney et al. 2020</a>).</p>
 		<h4>Latitudinal methods</h4>
@@ -96,8 +103,8 @@
 		<p><a href="#gaskell">Gaskell et al. (2022)</a> introduced a method for estimating &delta;<sup>18</sup>O<sub>w</sub> from isotope-enabled GCM simulations, allowing explicit consideration of paleogeography and climate state. For details on this method, see the original publication; briefly, surface &delta;<sup>18</sup>O<sub>w</sub> values are taken from a suite of GCM runs with variable <i>p</i>CO<sub>2</sub>, representing different possible climate states for a given paleogeography. For improved precision, &delta;<sup>18</sup>O<sub>w</sub> is interpolated between these runs using natural cubic splines, using bottom-water temperature to define where each sample falls on these splines. This method therefore requires a bottom-water temperature record in addition to sample latitudes/longitudes.</p>
 		<p>This method is valid globally, subject to the appropriateness of the paleogeography in the available datasets.</p>
 		
-		<h3>Carbonate ion effects</h3>
-		<p>The &delta;<sup>18</sup>O of many carbonates covaries negatively with water [CO<sub>3</sub><sup>2-</sup>] and/or pH (see <a href="#spero">Spero et al. 1997</a> and others), potentially biasing temperature reconstructions. This tool can automatically adjust &delta;<sup>18</sup>O<sub>c</sub> for changes in [CO<sub>3</sub><sup>2-</sup>] based on empirical measurements of the slope of this relationship and a record of seawater [CO<sub>3</sub><sup>2-</sup>].</p>
+		<h3>Carbonate system effects</h3>
+		<p>The &delta;<sup>18</sup>O of many carbonates covaries negatively with water [CO<sub>3</sub><sup>2-</sup>] and/or pH (see <a href="#spero">Spero et al. 1997</a> and others), potentially biasing temperature reconstructions. This tool can automatically adjust &delta;<sup>18</sup>O<sub>c</sub> for changes in seawater carbonate chemistry based on empirical measurements of the slope of this relationship and a record of seawater [CO<sub>3</sub><sup>2-</sup>].</p>
 		<p>Note that the [CO<sub>3</sub><sup>2-</sup>] records presently included have a relatively coarse resolution, so they are not appropriate for simulating changes in seawater carbonate chemistry over (e.g.) interglacial timescales. Spatial and depth variation in [CO<sub>3</sub><sup>2-</sup>] is also not considered. As an alternative, you may specify [CO<sub>3</sub><sup>2-</sup>] manually.</p>
 		
 		<h2>Demonstration dataset</h2>

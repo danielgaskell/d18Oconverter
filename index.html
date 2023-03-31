@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  Copyright (c) 2022, Daniel E. Gaskell and Pincelli M. Hull.
+  Copyright (c) 2023, Daniel E. Gaskell and Pincelli M. Hull.
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -57,6 +57,10 @@
 							document.getElementById("gcmlabel").className = "disabled";
 							document.getElementById("square").disabled = true;
 							document.getElementById("squarelabel").className = "disabled";
+							document.getElementById("degrees").disabled = true;
+							document.getElementById("degreeslabel").className = "disabled";
+							document.getElementById("radius").disabled = true;
+							document.getElementById("radiuslabel").className = "disabled";
 							break;
 						case "legrandemixed": case "legrande0": case "legrande50": case "legrande100": case "legrande200": case "legrande500": case "legrande1000": case "legrande1500": case "legrande2000": case "legrande3000": case "legrande4000": case "legrande5000": case "tierney_hol": case "tierney_lgm":
 							document.getElementById("benthic").disabled = true;
@@ -67,6 +71,10 @@
 							document.getElementById("gcmlabel").className = "disabled";
 							document.getElementById("square").disabled = false;
 							document.getElementById("squarelabel").className = "";
+							document.getElementById("degrees").disabled = false;
+							document.getElementById("degreeslabel").className = "";
+							document.getElementById("radius").disabled = false;
+							document.getElementById("radiuslabel").className = "";
 							break;
 						case "zachos": case "hollis":
 							document.getElementById("benthic").disabled = true;
@@ -77,6 +85,10 @@
 							document.getElementById("gcmlabel").className = "disabled";
 							document.getElementById("square").disabled = true;
 							document.getElementById("squarelabel").className = "disabled";
+							document.getElementById("degrees").disabled = true;
+							document.getElementById("degreeslabel").className = "disabled";
+							document.getElementById("radius").disabled = true;
+							document.getElementById("radiuslabel").className = "disabled";
 							break;
 						case "gaskell_poly":
 							document.getElementById("benthic").disabled = false;
@@ -86,6 +98,10 @@
 							document.getElementById("gcmlabel").className = "disabled";
 							document.getElementById("square").disabled = true;
 							document.getElementById("squarelabel").className = "disabled";
+							document.getElementById("degrees").disabled = true;
+							document.getElementById("degreeslabel").className = "disabled";
+							document.getElementById("radius").disabled = true;
+							document.getElementById("radiuslabel").className = "disabled";
 							break;
 						case "gaskell_cesm":
 							document.getElementById("benthic").disabled = false;
@@ -95,6 +111,10 @@
 							document.getElementById("gcmlabel").className = "";
 							document.getElementById("square").disabled = false;
 							document.getElementById("squarelabel").className = "";
+							document.getElementById("degrees").disabled = false;
+							document.getElementById("degreeslabel").className = "";
+							document.getElementById("radius").disabled = false;
+							document.getElementById("radiuslabel").className = "";
 							break;
 					}
 					break;
@@ -170,7 +190,6 @@ d18O,age,lat,long
 					<option value="mccrea">Inorganic Calcite (McCrea 1950)</option>
 					<option value="oneil">Inorganic Calcite (O'Neil et al. 1969)</option>
 					<option value="kimoneil">Inorganic Calcite (Kim & O'Neil 1997)</option>
-					<option value="zhouzheng">Inorganic Aragonite (Zhou & Zheng 2003)</option>
 					<option value="kim_arag">Inorganic Aragonite (Kim et al. 2007)</option>
 					<option value="bayfox_pooled" selected>Foram SST - bayfox pooled (Malevich et al. 2019)</option>
 					<option value="bayfox_ruber">Foram SST - bayfox G. ruber (Malevich et al. 2019)</option>
@@ -212,6 +231,7 @@ d18O,age,lat,long
 					<option value="grossman_ele">Benthic Foram - H. elegans (Grossman & Hu 1986)</option>
 					<option value="marchitto_ele">Benthic Foram - H. elegans (Marchitto et al. 2014)</option>
 					<option value="shackleton">Benthic Foram - Uvigerina spp. (Shackleton 1974)</option>
+					<option value="marchitto_per_rec">Benthic Foram - Uvigerina spp. (recommended method by Marchitto et al. 2014)</option>
 					<option value="marchitto_per">Benthic Foram - Uvigerina peregrina (Marchitto et al. 2014)</option>
 					<option value="reynaud_acro">Coral - Acropora spp. (Reynaud-Vaganay et al. 1999)</option>
 					<option value="juillet">Coral - Porites spp. (Juillet-Leclerc & Schmidt 2001)</option>
@@ -266,8 +286,8 @@ d18O,age,lat,long
 				<p>
 					<label id="latlonglabel" for="latlong">Paleocoordinate adjustment:</label>
 					<select id="latlong" name="latlong" onchange="updateDisabled(this)">
-						<option value="none">None</option>
-						<option value="gplates" selected>GPlates Web Service (Müller et al. 2018)</option>
+						<option value="none" selected>None</option>
+						<option value="gplates">GPlates Web Service (Müller et al. 2018)</option>
 					</select>
 				</p>
 			</fieldset>
@@ -286,6 +306,8 @@ d18O,age,lat,long
 						<option value="cramer1s">Cramer et al. 2011 S4 smoothed (9-108 Ma, NJSL)</option>
 						<option value="cramer2s">Cramer et al. 2011 S5 smoothed (0-63 Ma, Mg/Ca-d18O)</option>
 						<option value="cramer3s">Cramer et al. 2011 S6 smoothed (0-63 Ma, Mg/Ca-d18O)</option>
+						<option value="mecklerraw">Meckler et al. 2022 (0-62 Ma, D47-d18O raw)</option>
+						<option value="mecklerph">Meckler et al. 2022 (0-62 Ma, D47-d18O pH-corrected)</option>
 						<option value="miller">Miller et al. 2020 (0-66 Ma, Mg/Ca-d18O)</option>
 						<option value="modestou">Modestou et al. 2020 (11-16 Ma, &Delta;47-d18O)</option>
 						<option value="rohling1" selected>Rohling et al. 2021 CENOGRID (0-40 Ma, multi-proxy)</option>
@@ -335,6 +357,7 @@ d18O,age,lat,long
 						<option value="cramer1s">Cramer et al. 2011 S4 smoothed (9-108 Ma, NJSL-d18O)</option>
 						<option value="cramer2s">Cramer et al. 2011 S5 smoothed (0-63 Ma, Mg/Ca)</option>
 						<option value="cramer3s">Cramer et al. 2011 S6 smoothed (0-63 Ma, Mg/Ca)</option>
+						<option value="meckler">Meckler et al. 2022 (0-62 Ma, D47)</option>
 						<option value="miller">Miller et al. 2020 (0-66 Ma, Mg/Ca)</option>
 						<option value="rohling1" selected>Rohling et al. 2021 CENOGRID (0-40 Ma, SL-d18O)</option>
 						<option value="rohling2">Rohling et al. 2021 LR04 (0-5.3 Ma, SL-d18O)</option>
@@ -352,24 +375,28 @@ d18O,age,lat,long
 					</select>
 				</p>
 				<p>
-					<label id="squarelabel" for="square">Plus/minus degrees lat/long to average (0 for nearest point):</label>
-					<input id="square" name="square" value="5">
+					<label id="squarelabel" for="square">Area to average (0 for nearest point):</label>
+					<input id="square" name="square" value="5" size=10>
+					<input id="degrees" name="avgmethod" type="radio" value="degrees" checked>
+						<label id="degreeslabel" for="degrees">&plusmn;&deg; lat/long</label>
+					<input id="radius" name="avgmethod" type="radio" value="radius">
+						<label id="radiuslabel" for="radius">km radius</label>
 				</p>
 			</fieldset>
 		</fieldset>
 		<fieldset>
-			<legend>Carbonate ion effects</legend>
+			<legend>Carbonate system effects</legend>
 			<p>
 				<label id="co3label" for="co3">Correction slope:</label>
 				<select id="co3" name="co3" onchange="updateDisabled(this)">
-					<option value="none">No correction</option>
-					<option value="ziveri_cocco">Coccolithophore - C. leptoporus (Ziveri et al. 2012)</option>
-					<option value="ziveri_dino">Dinoflagellate - T. heimii (Ziveri et al. 2012)</option>
-					<option value="mean" selected>Planktic Foram - mean (Spero et al. 1999)</option>
-					<option value="spero_bul">Planktic Foram - G. bulloides (Spero et al. 1997)</option>
-					<option value="spero_rub">Planktic Foram - G. ruber (Bijma et al. 1999)</option>
-					<option value="spero_orb">Planktic Foram - O. universa (Spero et al. 1997)</option>
-					<option value="spero_sac">Planktic Foram - T. sacculifer (Bijma et al. 1999)</option>
+					<option value="none" selected>No correction</option>
+					<option value="ziveri_cocco">Coccolithophore - C. leptoporus (-0.0048&permil;/μmol/kg; Ziveri et al. 2012)</option>
+					<option value="ziveri_dino">Dinoflagellate - T. heimii (-0.024&permil;/μmol/kg; Ziveri et al. 2012)</option>
+					<option value="mean">Planktic Foram - mean (-0.0025&permil;/μmol/kg; Spero et al. 1999)</option>
+					<option value="spero_bul">Planktic Foram - G. bulloides (-0.0045&permil;/μmol/kg; Spero et al. 1997)</option>
+					<option value="spero_rub">Planktic Foram - G. ruber (-0.0022&permil;/μmol/kg; Bijma et al. 1999)</option>
+					<option value="spero_orb">Planktic Foram - O. universa (-0.0020&permil;/μmol/kg; Spero et al. 1997)</option>
+					<option value="spero_sac">Planktic Foram - T. sacculifer (-0.0014&permil;/μmol/kg; Bijma et al. 1999)</option>
 				</select>
 			</p>
 			<p>

@@ -140,3 +140,24 @@ legend {
 .content {
 	margin:10px;
 }
+
+.button-link {
+  align-items: normal;
+  box-sizing: content-box;
+  border-style: none;
+  background-color: rgba(0,0,0,0);
+  color:rgb(0, 0, 238); 
+  cursor:pointer;
+  display:inline;
+  font:inherit;
+  height:auto;
+  padding:0;
+  perspective-origin:0 0;
+  text-align:start;
+  text-decoration:underline;
+  transform-origin:0 0;
+  width:auto;
+  -moz-appearance:none;
+  -webkit-logical-height:1em;
+  -webkit-logical-width:auto;
+}
