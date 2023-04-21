@@ -4,7 +4,7 @@ This repository contains the source code for the online &delta;<sup>18</sup>O-te
 
 > Gaskell, D.E., and Hull, P.M., 2022, Technical note: A new online tool for &delta;<sup>18</sup>O-temperature conversions: Climate of the Past Discussions (preprint, in review), doi:10.5194/cp-2022-74.
 
-The current official online host for the tool is [https://research.peabody.yale.edu/d180/](https://research.peabody.yale.edu/d180/). An alternate development version is also available at [https://www.danielgaskell.com/d18O](https://www.danielgaskell.com/d18O). This tool may be freely used to generate data for publications provided this publication (or its subsequent version of record) is appropriately cited.
+The current official online host for the tool is [https://research.peabody.yale.edu/d180/](https://research.peabody.yale.edu/d180/). An alternate host is also available at [https://www.danielgaskell.com/d18O](https://www.danielgaskell.com/d18O). This tool may be freely used to generate data for publications provided this publication (or its subsequent version of record) is appropriately cited.
 
 # Changelog
 
