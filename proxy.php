@@ -496,7 +496,8 @@
 						$coords[] = round(floatval($row['lat']),  3);
 					}
 					set_error_handler("warning_handler", E_WARNING);
-					$gplates = file_get_contents('https://gws.gplates.org/reconstruct/reconstruct_points/?points=' . implode(',', $coords) . '&time=' . round(floatval($agekey), 3) . "&model=MULLER2016");
+					$arr_context_options = array("http" => array("method" => "GET",), "ssl"=>array("allow_self_signed"=>true, "verify_peer"=>false, "verify_peer_name"=>false,),);
+					$gplates = file_get_contents('https://gws.gplates.org/reconstruct/reconstruct_points/?points=' . implode(',', $coords) . '&time=' . round(floatval($agekey), 3) . "&model=MULLER2016", false,  stream_context_create($arr_context_options));
 					restore_error_handler();
 					$json = json_decode($gplates);
 					$i = 0;
