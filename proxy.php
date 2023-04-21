@@ -113,22 +113,46 @@
 		}
 	}
 	
+	// get next lower value of $y[][$xkey] than $xval
+	function next_lower($y, $xkey, $xval) {
+		$lowest = -1e100;
+		$index = -1;
+		foreach ($y as $i => $row) {
+			$x = floatval($row[$xkey]);
+			if ($x > $lowest and $x <= $xval) {
+				$lowest = $x;
+				$index = $i;
+			}
+		}
+		return $index;
+	}
+	
+	// get next higher value of $y[][$xkey] than $xval
+	function next_higher($y, $xkey, $xval) {
+		$highest = 1e100;
+		$index = -1;
+		foreach ($y as $i => $row) {
+			$x = floatval($row[$xkey]);
+			if ($x < $highest and $x >= $xval) {
+				$highest = $x;
+				$index = $i;
+			}
+		}
+		return $index;
+	}
+	
 	// linear interpolation
 	function interpolate($xval, $y, $xkey, $ykey) {
 		global $errors;
 		$xval = floatval($xval);
-		$xvals = array_map('floatval', array_column($y, $xkey));
-		$yvals = array_map('floatval', array_column($y, $ykey));
-		$filtered_lower = array_filter($xvals, function($val) use ($xval) {return $val <= $xval;});
-		$filtered_higher = array_filter($xvals, function($val) use ($xval) {return $val >= $xval;});
-		if (sizeof($filtered_lower) > 0 and sizeof($filtered_higher) > 0) {
-			$next_lowest  = array_search(max($filtered_lower), $xvals);
-			$next_highest = array_search(min($filtered_higher), $xvals);
-			if ($next_lowest == $next_highest) {
-				return $y[$next_lowest][$ykey];
-			} elseif ($y[$next_lowest][$ykey] != "" and $y[$next_highest][$ykey] != "") {
-				$xprop = ($xval - $y[$next_lowest][$xkey]) / ($y[$next_highest][$xkey] - $y[$next_lowest][$xkey]);
-				return $y[$next_lowest][$ykey] + (($y[$next_highest][$ykey] - $y[$next_lowest][$ykey]) * $xprop);
+		$next_lower = next_lower($y, $xkey, $xval);
+		$next_higher = next_higher($y, $xkey, $xval);
+		if ($next_lower != -1 and $next_higher != -1) {
+			if ($next_lower == $next_higher) {
+				return $y[$next_lower][$ykey];
+			} elseif ($y[$next_lower][$ykey] != "" and $y[$next_higher][$ykey] != "") {
+				$xprop = ($xval - $y[$next_lower][$xkey]) / ($y[$next_higher][$xkey] - $y[$next_lower][$xkey]);
+				return $y[$next_lower][$ykey] + (($y[$next_higher][$ykey] - $y[$next_lower][$ykey]) * $xprop);
 			} else {
 				$errors = TRUE;
 				return NAN;
