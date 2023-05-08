@@ -52,7 +52,7 @@
 	   
 	include "spline.php";
 	
-	$version = "1.1";
+	$version = "1.2";
 
 	$errors = FALSE; // set to indicate non-fatal errors
 	$age_error = FALSE;
@@ -1241,7 +1241,7 @@
 			if ($valid_temp_end > 30) $valid_temp_end = 30;
 			break;
 		case "lynch":
-			$description = "the culture calibration of Lynch-Stieglitz et al. (1999) for <i>Cibicidoides</i> spp. and <i>Planulina</i> spp.: "
+			$description = "the surface sediment calibration of Lynch-Stieglitz et al. (1999) for <i>Cibicidoides</i> spp. and <i>Planulina</i> spp., as reformulated by Gaskell & Hull (2023): "
 						 . "<div class='math'><math><mi>T</mi><mo> = </mo><mn>16.1</mn><mo> - </mo><mn>4.76</mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> - </mo><mn>0.27</mn><mo>)</mo></math></div>"
 						 . "where <i>T</i> is temperature (°C), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VSMOW). An offset of -0.27&#8240; is applied to convert VSMOW to VPBD, following the method used to construct the original calibration (Hut 1987). "
 						 . $description;
@@ -1369,7 +1369,7 @@
 			if ($valid_temp_end > 40) $valid_temp_end = 40;
 			break;
 		case "mulitza_pool":
-			$description = "the pooled planktonic foraminifera calibration of Mulitza et al. (2004): "
+			$description = "the pooled planktonic foraminifera calibration of Mulitza et al. (2003): "
 						 . "<div class='math'><math><mi>T</mi><mo> = </mo><mn>14.32</mn><mo> - </mo><mn>4.28</mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> - </mo><mn>0.27</mn><mo>)</mo><mo> + </mo><msup><mrow><mn>0.07</mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> - </mo><mn>0.27</mn><mo>)</mo></mrow><mn>2</mn></msup></math></div>"
 						 . "where <i>T</i> is temperature (°C), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VSMOW). An offset of -0.27&#8240; is applied to convert VSMOW to VPBD, following the method used to construct the original calibration (Hut 1987). "
 						 . $description;
@@ -1382,7 +1382,7 @@
 			if ($valid_temp_end > 31) $valid_temp_end = 31;
 			break;
 		case "mulitza_sac":
-			$description = "the tow calibration of Mulitza et al. (2004) for <i>G. sacculifer</i>: "
+			$description = "the tow calibration of Mulitza et al. (2003) for <i>T. sacculifer</i>: "
 						 . "<div class='math'><math><mi>T</mi><mo> = </mo><mn>14.91</mn><mo> - </mo><mn>4.35</mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> - </mo><mn>0.27</mn><mo>)</mo></math></div>"
 						 . "where <i>T</i> is temperature (°C), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VSMOW). An offset of -0.27&#8240; is applied to convert VSMOW to VPBD, following the method used to construct the original calibration (Hut 1987). "
 						 . $description;
@@ -1395,7 +1395,7 @@
 			if ($valid_temp_end > 31) $valid_temp_end = 31;
 			break;
 		case "mulitza_rub":
-			$description = "the tow calibration of Mulitza et al. (2004) for <i>G. ruber</i> (white): "
+			$description = "the tow calibration of Mulitza et al. (2003) for <i>G. ruber</i> (white): "
 						 . "<div class='math'><math><mi>T</mi><mo> = </mo><mn>14.20</mn><mo> - </mo><mn>4.44</mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> - </mo><mn>0.27</mn><mo>)</mo></math></div>"
 						 . "where <i>T</i> is temperature (°C), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VSMOW). An offset of -0.27&#8240; is applied to convert VSMOW to VPBD, following the method used to construct the original calibration (Hut 1987). "
 						 . $description;
@@ -1408,7 +1408,7 @@
 			if ($valid_temp_end > 31) $valid_temp_end = 31;
 			break;
 		case "mulitza_bul":
-			$description = "the tow calibration of Mulitza et al. (2004) for <i>G. bulloides</i>: "
+			$description = "the tow calibration of Mulitza et al. (2003) for <i>G. bulloides</i>: "
 						 . "<div class='math'><math><mi>T</mi><mo> = </mo><mn>14.62</mn><mo> - </mo><mn>4.70</mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> - </mo><mn>0.27</mn><mo>)</mo></math></div>"
 						 . "where <i>T</i> is temperature (°C), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VSMOW). An offset of -0.27&#8240; is applied to convert VSMOW to VPBD, following the method used to construct the original calibration (Hut 1987). "
 						 . $description;
@@ -1421,7 +1421,7 @@
 			if ($valid_temp_end > 25) $valid_temp_end = 25;
 			break;
 		case "mulitza_pac":
-			$description = "the tow calibration of Mulitza et al. (2004) for <i>N. pachyderma</i>: "
+			$description = "the tow calibration of Mulitza et al. (2003) for <i>N. pachyderma</i>: "
 						 . "<div class='math'><math><mi>T</mi><mo> = </mo><mn>12.69</mn><mo> - </mo><mn>3.55</mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> - </mo><mn>0.27</mn><mo>)</mo></math></div>"
 						 . "where <i>T</i> is temperature (°C), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VSMOW). An offset of -0.27&#8240; is applied to convert VSMOW to VPBD, following the method used to construct the original calibration (Hut 1987). "
 						 . $description;
@@ -1467,7 +1467,7 @@
 			if ($valid_temp_end > 25) $valid_temp_end = 25;
 			break;
 		case "bemis_bul11":
-			$description = "the 11-chamber calibration of Bemis et al. (1998) for <i>Globigerina bulloides</i>: "
+			$description = "the 11th-chamber calibration of Bemis et al. (1998) for <i>Globigerina bulloides</i>: "
 						 . "<div class='math'><math><mi>T</mi><mo> = </mo><mn>12.6</mn><mo> - </mo><mn>5.07/mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> - </mo><mn>0.27</mn><mo>)</mo></math></div>"
 						 . "where <i>T</i> is temperature (°C), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VSMOW). "
 						 . $description;
@@ -1478,7 +1478,7 @@
 			if ($valid_temp_end > 24) $valid_temp_end = 24;
 			break;
 		case "bemis_bul12":
-			$description = "the 12-chamber calibration of Bemis et al. (1998) for <i>Globigerina bulloides</i>: "
+			$description = "the 12th-chamber calibration of Bemis et al. (1998) for <i>Globigerina bulloides</i>: "
 						 . "<div class='math'><math><mi>T</mi><mo> = </mo><mn>13.2</mn><mo> - </mo><mn>4.89/mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> - </mo><mn>0.27</mn><mo>)</mo></math></div>"
 						 . "where <i>T</i> is temperature (°C), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VSMOW). "
 						 . $description;
@@ -1489,7 +1489,7 @@
 			if ($valid_temp_end > 24) $valid_temp_end = 24;
 			break;
 		case "bemis_bul13":
-			$description = "the 13-chamber calibration of Bemis et al. (1998) for <i>Globigerina bulloides</i>: "
+			$description = "the 13th-chamber calibration of Bemis et al. (1998) for <i>Globigerina bulloides</i>: "
 						 . "<div class='math'><math><mi>T</mi><mo> = </mo><mn>13.6</mn><mo> - </mo><mn>4.77/mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> - </mo><mn>0.27</mn><mo>)</mo></math></div>"
 						 . "where <i>T</i> is temperature (°C), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VSMOW). "
 						 . $description;
@@ -1722,17 +1722,15 @@
 			if ($valid_temp_end > 25) $valid_temp_end = 25;
 			break;
 		case "patterson":
-			$description = "the otolith calibration of Patterson et al. (1993) for freshwater lake fish, as standardized by Willmes et al. (2019): "
+			$description = "the otolith calibration of Patterson et al. (1993) for freshwater lake fish: "
 						 . "<div class='math'><math><mn>1000</mn><mo> ln </mo><mi>&alpha;</mi><mo> = </mo><mn>18.56</mn><mo>(</mo><msup><mn>10</mn><mn>3</mn></msup><msup><mi>TK</mi><mn>-1</mn></msup><mo>)</mo><mo> - </mo><mn>33.49</mn></math></div>"
 						 . "<div class='math'><math><mi>&alpha;</mi><mo> = </mo><mfrac><mrow><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> + </mo><mn>1000</mn></mrow><mrow><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> + </mo><mn>1000</mn></mrow></mfrac></math></div>"
 						 . "where <i>TK</i> is temperature (in Kelvin), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VPBD). The conversion <div class='math'><math><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mtext>(VPBD)</mtext></msub><mo> = </mo><mn>0.97001</mn><mo> &times; </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mtext>(VSMOW)</mtext></msub><mo> - </mo><mn>29.99</mn></math></div> was used to convert seawater &delta;<sup>18</sup>O from VSMOW to VPBD (Brand et al. 2014). "
 						 . $description;
 			array_push($citations, "<li class='citation'>Brand, W.A., Coplen, T.B., Vogl, J., Rosner, M., and Prohaska, T., 2014, Assessment of international reference materials for isotope-ratio analysis (IUPAC Technical Report): Pure and Applied Chemistry, v. 86, p. 425–467.</li>");
 			array_push($citations, "<li class='citation'>Patterson, W.P., Smith, G.R., and Lohmann, K.C., 1993, Continental Paleothermometry and Seasonality Using the Isotopic Composition of Aragonitic Otoliths of Freshwater Fishes, in Climate Change in Continental Isotopic Records, American Geophysical Union (AGU), p. 191–202, doi:10.1029/GM078p0191.</li>");
-			array_push($citations, "<li class='citation'>Willmes, M. et al., 2019, Calibrating temperature reconstructions from fish otolith oxygen isotope analysis for California’s critically endangered Delta Smelt: Rapid Communications in Mass Spectrometry, v. 33, p. 1207–1220, doi:10.1002/rcm.8464.</li>");
 			array_push($cite_bibtex, "@article{brand_assessment_2014,\n\ttitle = {Assessment of international reference materials for isotope-ratio analysis ({IUPAC} {Technical} {Report})},\n\tvolume = {86},\n\tnumber = {3},\n\tjournal = {Pure and Applied Chemistry},\n\tauthor = {Brand, Willi A and Coplen, Tyler B and Vogl, Jochen and Rosner, Martin and Prohaska, Thomas},\n\tyear = {2014},\n\tpages = {425--467},\n}");
 			array_push($cite_bibtex, "@incollection{patterson_continental_1993,\n\ttitle = {Continental {Paleothermometry} and {Seasonality} {Using} the {Isotopic} {Composition} of {Aragonitic} {Otoliths} of {Freshwater} {Fishes}},\n\tisbn = {978-1-118-66402-5},\n\turl = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/GM078p0191},\n\tlanguage = {en},\n\turldate = {2021-06-25},\n\tbooktitle = {Climate {Change} in {Continental} {Isotopic} {Records}},\n\tpublisher = {American Geophysical Union (AGU)},\n\tauthor = {Patterson, William P. and Smith, Gerald R. and Lohmann, Kyger C.},\n\tyear = {1993},\n\tdoi = {10.1029/GM078p0191},\n\tpages = {191--202},\n}");
-			array_push($cite_bibtex, "@article{willmes_calibrating_2019,\n\ttitle = {Calibrating temperature reconstructions from fish otolith oxygen isotope analysis for {California}'s critically endangered {Delta} {Smelt}},\n\tvolume = {33},\n\tissn = {1097-0231},\n\turl = {https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/abs/10.1002/rcm.8464},\n\tdoi = {10.1002/rcm.8464},\n\tlanguage = {en},\n\tnumber = {14},\n\turldate = {2021-06-25},\n\tjournal = {Rapid Communications in Mass Spectrometry},\n\tauthor = {Willmes, Malte and Lewis, Levi S. and Davis, Brittany E. and Loiselle, Liane and James, Hannah F. and Denny, Christian and Baxter, Randall and Conrad, J. Louise and Fangue, Nann A. and Hung, Tien-Chieh and Armstrong, Richard A. and Williams, Ian S. and Holden, Peter and Hobbs, James A.},\n\tyear = {2019},\n\tpages = {1207--1220},\n}");
 			mutate($data, "temp", function($row) {return (18.56*1000 / (33.49 + 1000*log((1000 + $row['d18O_CO3'])/(1000 + (0.97001*($row['d18Osw_global'] + $row['d18Osw_spatial']) - 29.99)))) - 273.15);});
 			if ($valid_temp_start < 3.2) $valid_temp_start = 3.2;
 			if ($valid_temp_end > 30.3) $valid_temp_end = 30.3;
@@ -1754,49 +1752,43 @@
 			if ($valid_temp_end > 14) $valid_temp_end = 14;
 			break;
 		case "geffen":
-			$description = "the otolith calibration of Geffin (2012) for <i>Pleuronectes platessa</i>, as standardized by Willmes et al. (2019): "
+			$description = "the otolith calibration of Geffen (2012) for <i>Pleuronectes platessa</i>: "
 						 . "<div class='math'><math><mn>1000</mn><mo> ln </mo><mi>&alpha;</mi><mo> = </mo><mn>15.99</mn><mo>(</mo><msup><mn>10</mn><mn>3</mn></msup><msup><mi>TK</mi><mn>-1</mn></msup><mo>)</mo><mo> - </mo><mn>24.25</mn></math></div>"
 						 . "<div class='math'><math><mi>&alpha;</mi><mo> = </mo><mfrac><mrow><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> + </mo><mn>1000</mn></mrow><mrow><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> + </mo><mn>1000</mn></mrow></mfrac></math></div>"
 						 . "where <i>TK</i> is temperature (in Kelvin), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VPBD). The conversion <div class='math'><math><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mtext>(VPBD)</mtext></msub><mo> = </mo><mn>0.97001</mn><mo> &times; </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mtext>(VSMOW)</mtext></msub><mo> - </mo><mn>29.99</mn></math></div> was used to convert seawater &delta;<sup>18</sup>O from VSMOW to VPBD (Brand et al. 2014). "
 						 . $description;
 			array_push($citations, "<li class='citation'>Brand, W.A., Coplen, T.B., Vogl, J., Rosner, M., and Prohaska, T., 2014, Assessment of international reference materials for isotope-ratio analysis (IUPAC Technical Report): Pure and Applied Chemistry, v. 86, p. 425–467.</li>");
 			array_push($citations, "<li class='citation'>Geffen, A.J., 2012, Otolith oxygen and carbon stable isotopes in wild and laboratory-reared plaice (Pleuronectes platessa): Environmental Biology of Fishes, v. 95, p. 419–430, doi:10.1007/s10641-012-0033-2.</li>");
-			array_push($citations, "<li class='citation'>Willmes, M. et al., 2019, Calibrating temperature reconstructions from fish otolith oxygen isotope analysis for California’s critically endangered Delta Smelt: Rapid Communications in Mass Spectrometry, v. 33, p. 1207–1220, doi:10.1002/rcm.8464.</li>");
 			array_push($cite_bibtex, "@article{brand_assessment_2014,\n\ttitle = {Assessment of international reference materials for isotope-ratio analysis ({IUPAC} {Technical} {Report})},\n\tvolume = {86},\n\tnumber = {3},\n\tjournal = {Pure and Applied Chemistry},\n\tauthor = {Brand, Willi A and Coplen, Tyler B and Vogl, Jochen and Rosner, Martin and Prohaska, Thomas},\n\tyear = {2014},\n\tpages = {425--467},\n}");
 			array_push($cite_bibtex, "@article{@article{geffen_otolith_2012,\n\ttitle = {Otolith oxygen and carbon stable isotopes in wild and laboratory-reared plaice ({Pleuronectes} platessa)},\n\tvolume = {95},\n\tissn = {1573-5133},\n\turl = {https://doi.org/10.1007/s10641-012-0033-2},\n\tdoi = {10.1007/s10641-012-0033-2},\n\tlanguage = {en},\n\tnumber = {4},\n\turldate = {2021-06-25},\n\tjournal = {Environmental Biology of Fishes},\n\tauthor = {Geffen, Audrey J.},\n\tmonth = dec,\n\tyear = {2012},\n\tpages = {419--430},\n}");
-			array_push($cite_bibtex, "@article{willmes_calibrating_2019,\n\ttitle = {Calibrating temperature reconstructions from fish otolith oxygen isotope analysis for {California}'s critically endangered {Delta} {Smelt}},\n\tvolume = {33},\n\tissn = {1097-0231},\n\turl = {https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/abs/10.1002/rcm.8464},\n\tdoi = {10.1002/rcm.8464},\n\tlanguage = {en},\n\tnumber = {14},\n\turldate = {2021-06-25},\n\tjournal = {Rapid Communications in Mass Spectrometry},\n\tauthor = {Willmes, Malte and Lewis, Levi S. and Davis, Brittany E. and Loiselle, Liane and James, Hannah F. and Denny, Christian and Baxter, Randall and Conrad, J. Louise and Fangue, Nann A. and Hung, Tien-Chieh and Armstrong, Richard A. and Williams, Ian S. and Holden, Peter and Hobbs, James A.},\n\tyear = {2019},\n\tpages = {1207--1220},\n}");
 			mutate($data, "temp", function($row) {return (15.99*1000 / (24.25 + 1000*log((1000 + $row['d18O_CO3'])/(1000 + (0.97001*($row['d18Osw_global'] + $row['d18Osw_spatial']) - 29.99)))) - 273.15);});
 			if ($valid_temp_start < 11) $valid_temp_start = 11;
 			if ($valid_temp_end > 17) $valid_temp_end = 17;
 			break;
 		case "hoie":
-			$description = "the otolith calibration of Høie et al. (2004) for Atlantic cod, as standardized by Willmes et al. (2019): "
+			$description = "the otolith calibration of Høie et al. (2004) for Atlantic cod: "
 						 . "<div class='math'><math><mn>1000</mn><mo> ln </mo><mi>&alpha;</mi><mo> = </mo><mn>16.75</mn><mo>(</mo><msup><mn>10</mn><mn>3</mn></msup><msup><mi>TK</mi><mn>-1</mn></msup><mo>)</mo><mo> - </mo><mn>27.09</mn></math></div>"
 						 . "<div class='math'><math><mi>&alpha;</mi><mo> = </mo><mfrac><mrow><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> + </mo><mn>1000</mn></mrow><mrow><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> + </mo><mn>1000</mn></mrow></mfrac></math></div>"
 						 . "where <i>TK</i> is temperature (in Kelvin), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VPBD). The conversion <div class='math'><math><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mtext>(VPBD)</mtext></msub><mo> = </mo><mn>0.97001</mn><mo> &times; </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mtext>(VSMOW)</mtext></msub><mo> - </mo><mn>29.99</mn></math></div> was used to convert seawater &delta;<sup>18</sup>O from VSMOW to VPBD (Brand et al. 2014). "
 						 . $description;
 			array_push($citations, "<li class='citation'>Brand, W.A., Coplen, T.B., Vogl, J., Rosner, M., and Prohaska, T., 2014, Assessment of international reference materials for isotope-ratio analysis (IUPAC Technical Report): Pure and Applied Chemistry, v. 86, p. 425–467.</li>");
 			array_push($citations, "<li class='citation'>Høie, H., Otterlei, E., and Folkvord, A., 2004, Temperature-dependent fractionation of stable oxygen isotopes in otoliths of juvenile cod (Gadus morhua L.): ICES Journal of Marine Science, v. 61, p. 243–251, doi:10.1016/j.icesjms.2003.11.006.</li>");
-			array_push($citations, "<li class='citation'>Willmes, M. et al., 2019, Calibrating temperature reconstructions from fish otolith oxygen isotope analysis for California’s critically endangered Delta Smelt: Rapid Communications in Mass Spectrometry, v. 33, p. 1207–1220, doi:10.1002/rcm.8464.</li>");
 			array_push($cite_bibtex, "@article{brand_assessment_2014,\n\ttitle = {Assessment of international reference materials for isotope-ratio analysis ({IUPAC} {Technical} {Report})},\n\tvolume = {86},\n\tnumber = {3},\n\tjournal = {Pure and Applied Chemistry},\n\tauthor = {Brand, Willi A and Coplen, Tyler B and Vogl, Jochen and Rosner, Martin and Prohaska, Thomas},\n\tyear = {2014},\n\tpages = {425--467},\n}");
 			array_push($cite_bibtex, "@article{hoie_temperature_2004,\n\ttitle = {Temperature-dependent fractionation of stable oxygen isotopes in otoliths of juvenile cod ({Gadus} morhua {L}.)},\n\tvolume = {61},\n\tissn = {1054-3139},\n\turl = {https://doi.org/10.1016/j.icesjms.2003.11.006},\n\tdoi = {10.1016/j.icesjms.2003.11.006},\n\tnumber = {2},\n\turldate = {2021-06-25},\n\tjournal = {ICES Journal of Marine Science},\n\tauthor = {Høie, Hans and Otterlei, Erling and Folkvord, Arild},\n\tmonth = jan,\n\tyear = {2004},\n\tpages = {243--251},\n}");
-			array_push($cite_bibtex, "@article{willmes_calibrating_2019,\n\ttitle = {Calibrating temperature reconstructions from fish otolith oxygen isotope analysis for {California}'s critically endangered {Delta} {Smelt}},\n\tvolume = {33},\n\tissn = {1097-0231},\n\turl = {https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/abs/10.1002/rcm.8464},\n\tdoi = {10.1002/rcm.8464},\n\tlanguage = {en},\n\tnumber = {14},\n\turldate = {2021-06-25},\n\tjournal = {Rapid Communications in Mass Spectrometry},\n\tauthor = {Willmes, Malte and Lewis, Levi S. and Davis, Brittany E. and Loiselle, Liane and James, Hannah F. and Denny, Christian and Baxter, Randall and Conrad, J. Louise and Fangue, Nann A. and Hung, Tien-Chieh and Armstrong, Richard A. and Williams, Ian S. and Holden, Peter and Hobbs, James A.},\n\tyear = {2019},\n\tpages = {1207--1220},\n}");
 			mutate($data, "temp", function($row) {return (16.75*1000 / (27.09 + 1000*log((1000 + $row['d18O_CO3'])/(1000 + (0.97001*($row['d18Osw_global'] + $row['d18Osw_spatial']) - 29.99)))) - 273.15);});
 			if ($valid_temp_start < 6) $valid_temp_start = 6;
 			if ($valid_temp_end > 20) $valid_temp_end = 20;
 			break;
 		case "stormsuke":
-			$description = "the otolith calibration of Storm-Suke et al. (2007) for <i>Salvelinus</i> spp., as standardized by Willmes et al. (2019): "
+			$description = "the otolith calibration of Storm-Suke et al. (2007) for <i>Salvelinus</i> spp.: "
 						 . "<div class='math'><math><mn>1000</mn><mo> ln </mo><mi>&alpha;</mi><mo> = </mo><mn>20.69</mn><mo>(</mo><msup><mn>10</mn><mn>3</mn></msup><msup><mi>TK</mi><mn>-1</mn></msup><mo>)</mo><mo> - </mo><mn>41.69</mn></math></div>"
 						 . "<div class='math'><math><mi>&alpha;</mi><mo> = </mo><mfrac><mrow><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> + </mo><mn>1000</mn></mrow><mrow><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> + </mo><mn>1000</mn></mrow></mfrac></math></div>"
 						 . "where <i>TK</i> is temperature (in Kelvin), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VPBD). The conversion <div class='math'><math><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mtext>(VPBD)</mtext></msub><mo> = </mo><mn>0.97001</mn><mo> &times; </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mtext>(VSMOW)</mtext></msub><mo> - </mo><mn>29.99</mn></math></div> was used to convert seawater &delta;<sup>18</sup>O from VSMOW to VPBD (Brand et al. 2014). "
 						 . $description;
 			array_push($citations, "<li class='citation'>Brand, W.A., Coplen, T.B., Vogl, J., Rosner, M., and Prohaska, T., 2014, Assessment of international reference materials for isotope-ratio analysis (IUPAC Technical Report): Pure and Applied Chemistry, v. 86, p. 425–467.</li>");
 			array_push($citations, "<li class='citation'>Storm-Suke, A., Dempson, J.B., Reist, J.D., and Power, M., 2007, A field-derived oxygen isotope fractionation equation for Salvelinus species: Rapid Communications in Mass Spectrometry, v. 21, p. 4109–4116, doi:10.1002/rcm.3320.</li>");
-			array_push($citations, "<li class='citation'>Willmes, M. et al., 2019, Calibrating temperature reconstructions from fish otolith oxygen isotope analysis for California’s critically endangered Delta Smelt: Rapid Communications in Mass Spectrometry, v. 33, p. 1207–1220, doi:10.1002/rcm.8464.</li>");
 			array_push($cite_bibtex, "@article{brand_assessment_2014,\n\ttitle = {Assessment of international reference materials for isotope-ratio analysis ({IUPAC} {Technical} {Report})},\n\tvolume = {86},\n\tnumber = {3},\n\tjournal = {Pure and Applied Chemistry},\n\tauthor = {Brand, Willi A and Coplen, Tyler B and Vogl, Jochen and Rosner, Martin and Prohaska, Thomas},\n\tyear = {2014},\n\tpages = {425--467},\n}");
 			array_push($cite_bibtex, "@article{storm_suke_field_2007,\n\ttitle = {A field-derived oxygen isotope fractionation equation for {Salvelinus} species},\n\tvolume = {21},\n\tissn = {1097-0231},\n\turl = {https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/abs/10.1002/rcm.3320},\n\tdoi = {10.1002/rcm.3320},\n\tlanguage = {en},\n\tnumber = {24},\n\turldate = {2021-06-25},\n\tjournal = {Rapid Communications in Mass Spectrometry},\n\tauthor = {Storm-Suke, Andrea and Dempson, J. Brian and Reist, James D. and Power, Michael},\n\tyear = {2007},\n\tpages = {4109--4116},\n}");
-			array_push($cite_bibtex, "@article{willmes_calibrating_2019,\n\ttitle = {Calibrating temperature reconstructions from fish otolith oxygen isotope analysis for {California}'s critically endangered {Delta} {Smelt}},\n\tvolume = {33},\n\tissn = {1097-0231},\n\turl = {https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/abs/10.1002/rcm.8464},\n\tdoi = {10.1002/rcm.8464},\n\tlanguage = {en},\n\tnumber = {14},\n\turldate = {2021-06-25},\n\tjournal = {Rapid Communications in Mass Spectrometry},\n\tauthor = {Willmes, Malte and Lewis, Levi S. and Davis, Brittany E. and Loiselle, Liane and James, Hannah F. and Denny, Christian and Baxter, Randall and Conrad, J. Louise and Fangue, Nann A. and Hung, Tien-Chieh and Armstrong, Richard A. and Williams, Ian S. and Holden, Peter and Hobbs, James A.},\n\tyear = {2019},\n\tpages = {1207--1220},\n}");
 			mutate($data, "temp", function($row) {return (20.69*1000 / (41.69 + 1000*log((1000 + $row['d18O_CO3'])/(1000 + (0.97001*($row['d18Osw_global'] + $row['d18Osw_spatial']) - 29.99)))) - 273.15);});
 			if ($valid_temp_start < 2.3) $valid_temp_start = 2.3;
 			if ($valid_temp_end > 11.8) $valid_temp_end = 11.8;
@@ -1824,33 +1816,29 @@
 			if ($valid_temp_end > 20) $valid_temp_end = 20;
 			break;
 		case "white":
-			$description = "the calibration of White et al. (1999) for the freshwater snail <i>Lymnaea peregra</i>, as standardized by Willmes et al. (2019): "
+			$description = "the calibration of White et al. (1999) for the freshwater snail <i>Lymnaea peregra</i>: "
 						 . "<div class='math'><math><mn>1000</mn><mo> ln </mo><mi>&alpha;</mi><mo> = </mo><mn>16.74</mn><mo>(</mo><msup><mn>10</mn><mn>3</mn></msup><msup><mi>TK</mi><mn>-1</mn></msup><mo>)</mo><mo> - </mo><mn>26.39</mn></math></div>"
 						 . "<div class='math'><math><mi>&alpha;</mi><mo> = </mo><mfrac><mrow><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> + </mo><mn>1000</mn></mrow><mrow><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> + </mo><mn>1000</mn></mrow></mfrac></math></div>"
 						 . "where <i>TK</i> is temperature (in Kelvin), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VPBD). The conversion <div class='math'><math><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mtext>(VPBD)</mtext></msub><mo> = </mo><mn>0.97001</mn><mo> &times; </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mtext>(VSMOW)</mtext></msub><mo> - </mo><mn>29.99</mn></math></div> was used to convert seawater &delta;<sup>18</sup>O from VSMOW to VPBD (Brand et al. 2014). "
 						 . $description;
 			array_push($citations, "<li class='citation'>Brand, W.A., Coplen, T.B., Vogl, J., Rosner, M., and Prohaska, T., 2014, Assessment of international reference materials for isotope-ratio analysis (IUPAC Technical Report): Pure and Applied Chemistry, v. 86, p. 425–467.</li>");
-			array_push($citations, "<li class='citation'>Willmes, M. et al., 2019, Calibrating temperature reconstructions from fish otolith oxygen isotope analysis for California’s critically endangered Delta Smelt: Rapid Communications in Mass Spectrometry, v. 33, p. 1207–1220, doi:10.1002/rcm.8464.</li>");
 			array_push($citations, "<li class='citation'>White, R.M.P., Dennis, P.F., and Atkinson, T.C., 1999, Experimental calibration and field investigation of the oxygen isotopic fractionation between biogenic aragonite and water: Rapid Communications in Mass Spectrometry, v. 13, p. 1242–1247, doi:10.1002/(SICI)1097-0231(19990715)13:13<1242::AID-RCM627>3.0.CO;2-F.</li>");
 			array_push($cite_bibtex, "@article{brand_assessment_2014,\n\ttitle = {Assessment of international reference materials for isotope-ratio analysis ({IUPAC} {Technical} {Report})},\n\tvolume = {86},\n\tnumber = {3},\n\tjournal = {Pure and Applied Chemistry},\n\tauthor = {Brand, Willi A and Coplen, Tyler B and Vogl, Jochen and Rosner, Martin and Prohaska, Thomas},\n\tyear = {2014},\n\tpages = {425--467},\n}");
 			array_push($cite_bibtex, "@article{white_experimental_1999,\n\ttitle = {Experimental calibration and field investigation of the oxygen isotopic fractionation between biogenic aragonite and water},\n\tvolume = {13},\n\tissn = {1097-0231},\n\turl = {https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291097-0231%2819990715%2913%3A13%3C1242%3A%3AAID-RCM627%3E3.0.CO%3B2-F},\n\tdoi = {10.1002/(SICI)1097-0231(19990715)13:13<1242::AID-RCM627>3.0.CO;2-F},\n\tlanguage = {en},\n\tnumber = {13},\n\turldate = {2021-06-25},\n\tjournal = {Rapid Communications in Mass Spectrometry},\n\tauthor = {White, R. M. P. and Dennis, P. F. and Atkinson, T. C.},\n\tyear = {1999},\n\tpages = {1242--1247},\n}");
-			array_push($cite_bibtex, "@article{willmes_calibrating_2019,\n\ttitle = {Calibrating temperature reconstructions from fish otolith oxygen isotope analysis for {California}'s critically endangered {Delta} {Smelt}},\n\tvolume = {33},\n\tissn = {1097-0231},\n\turl = {https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/abs/10.1002/rcm.8464},\n\tdoi = {10.1002/rcm.8464},\n\tlanguage = {en},\n\tnumber = {14},\n\turldate = {2021-06-25},\n\tjournal = {Rapid Communications in Mass Spectrometry},\n\tauthor = {Willmes, Malte and Lewis, Levi S. and Davis, Brittany E. and Loiselle, Liane and James, Hannah F. and Denny, Christian and Baxter, Randall and Conrad, J. Louise and Fangue, Nann A. and Hung, Tien-Chieh and Armstrong, Richard A. and Williams, Ian S. and Holden, Peter and Hobbs, James A.},\n\tyear = {2019},\n\tpages = {1207--1220},\n}");
 			mutate($data, "temp", function($row) {return (16.74*1000 / (26.39 + 1000*log((1000 + $row['d18O_CO3'])/(1000 + (0.97001*($row['d18Osw_global'] + $row['d18Osw_spatial']) - 29.99)))) - 273.15);});
 			if ($valid_temp_start < 8) $valid_temp_start = 8;
 			if ($valid_temp_end > 24) $valid_temp_end = 24;
 			break;
 		case "bohm":
-			$description = "the calibration of Böhm et al. (2000) for the sclerosponge <i>Ceratoporella nicholsoni</i>, as standardized by Willmes et al. (2019): "
+			$description = "the calibration of Böhm et al. (2000) for the sclerosponge <i>Ceratoporella nicholsoni</i>: "
 						 . "<div class='math'><math><mn>1000</mn><mo> ln </mo><mi>&alpha;</mi><mo> = </mo><mn>18.45</mn><mo>(</mo><msup><mn>10</mn><mn>3</mn></msup><msup><mi>TK</mi><mn>-1</mn></msup><mo>)</mo><mo> - </mo><mn>32.54</mn></math></div>"
 						 . "<div class='math'><math><mi>&alpha;</mi><mo> = </mo><mfrac><mrow><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> + </mo><mn>1000</mn></mrow><mrow><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo> + </mo><mn>1000</mn></mrow></mfrac></math></div>"
 						 . "where <i>TK</i> is temperature (in Kelvin), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VPBD). The conversion <div class='math'><math><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mtext>(VPBD)</mtext></msub><mo> = </mo><mn>0.97001</mn><mo> &times; </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mtext>(VSMOW)</mtext></msub><mo> - </mo><mn>29.99</mn></math></div> was used to convert seawater &delta;<sup>18</sup>O from VSMOW to VPBD (Brand et al. 2014). "
 						 . $description;
 			array_push($citations, "<li class='citation'>Brand, W.A., Coplen, T.B., Vogl, J., Rosner, M., and Prohaska, T., 2014, Assessment of international reference materials for isotope-ratio analysis (IUPAC Technical Report): Pure and Applied Chemistry, v. 86, p. 425–467.</li>");
 			array_push($citations, "<li class='citation'>Böhm, F., Joachimski, M.M., Dullo, W.-C., Eisenhauer, A., Lehnert, H., Reitner, J., and Wörheide, G., 2000, Oxygen isotope fractionation in marine aragonite of coralline sponges: Geochimica et Cosmochimica Acta, v. 64, p. 1695–1703, doi:10.1016/S0016-7037(99)00408-1.</li>");
-			array_push($citations, "<li class='citation'>Willmes, M. et al., 2019, Calibrating temperature reconstructions from fish otolith oxygen isotope analysis for California’s critically endangered Delta Smelt: Rapid Communications in Mass Spectrometry, v. 33, p. 1207–1220, doi:10.1002/rcm.8464.</li>");
 			array_push($cite_bibtex, "@article{brand_assessment_2014,\n\ttitle = {Assessment of international reference materials for isotope-ratio analysis ({IUPAC} {Technical} {Report})},\n\tvolume = {86},\n\tnumber = {3},\n\tjournal = {Pure and Applied Chemistry},\n\tauthor = {Brand, Willi A and Coplen, Tyler B and Vogl, Jochen and Rosner, Martin and Prohaska, Thomas},\n\tyear = {2014},\n\tpages = {425--467},\n}");
 			array_push($cite_bibtex, "@article{bohm_oxygen_2000,\n\ttitle = {Oxygen isotope fractionation in marine aragonite of coralline sponges},\n\tvolume = {64},\n\tissn = {0016-7037},\n\turl = {https://www.sciencedirect.com/science/article/pii/S0016703799004081},\n\tdoi = {10.1016/S0016-7037(99)00408-1},\n\tlanguage = {en},\n\tnumber = {10},\n\turldate = {2021-06-25},\n\tjournal = {Geochimica et Cosmochimica Acta},\n\tauthor = {Böhm, Florian and Joachimski, Michael M. and Dullo, Wolf-Christian and Eisenhauer, Anton and Lehnert, Helmut and Reitner, Joachim and Wörheide, Gert},\n\tmonth = may,\n\tyear = {2000},\n\tpages = {1695--1703},\n}");
-			array_push($cite_bibtex, "@article{willmes_calibrating_2019,\n\ttitle = {Calibrating temperature reconstructions from fish otolith oxygen isotope analysis for {California}'s critically endangered {Delta} {Smelt}},\n\tvolume = {33},\n\tissn = {1097-0231},\n\turl = {https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/abs/10.1002/rcm.8464},\n\tdoi = {10.1002/rcm.8464},\n\tlanguage = {en},\n\tnumber = {14},\n\turldate = {2021-06-25},\n\tjournal = {Rapid Communications in Mass Spectrometry},\n\tauthor = {Willmes, Malte and Lewis, Levi S. and Davis, Brittany E. and Loiselle, Liane and James, Hannah F. and Denny, Christian and Baxter, Randall and Conrad, J. Louise and Fangue, Nann A. and Hung, Tien-Chieh and Armstrong, Richard A. and Williams, Ian S. and Holden, Peter and Hobbs, James A.},\n\tyear = {2019},\n\tpages = {1207--1220},\n}");
 			mutate($data, "temp", function($row) {return (18.45*1000 / (32.54 + 1000*log((1000 + $row['d18O_CO3'])/(1000 + (0.97001*($row['d18Osw_global'] + $row['d18Osw_spatial']) - 29.99)))) - 273.15);});
 			if ($valid_temp_start < 3) $valid_temp_start = 3;
 			if ($valid_temp_end > 28) $valid_temp_end = 28;

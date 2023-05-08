@@ -8,6 +8,16 @@ The current official online host for the tool is [https://research.peabody.yale.
 
 # Changelog
 
+## Version 1.2
+
+Follow-up release for publication.
+
+* Added a workaround for servers which refuse GPlates' certs
+* Refactored linear interpolation routine for ~4x performance increase
+* Removed reformulation notices from some calibrations where coefficients were
+  identical to the original publication
+* Minor typo corrections
+
 ## Version 1.1
 
 Follow-up release for review.
