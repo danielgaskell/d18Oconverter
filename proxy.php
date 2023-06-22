@@ -337,7 +337,7 @@
 
 	// set up output
 	$description = "";
-	$citations = array("<li class='citation'>Gaskell, D.E., Pincelli M. Hull, 2023. Technical note: A new online tool for &delta;<sup>18</sup>O-temperature conversions: Climate of the Past, v. 19, p. 1265–1274, doi:10.5194/cp-19-1265-2023.</li>");
+	$citations = array("<li class='citation'>Gaskell, D.E., Hull, P.M., 2023. Technical note: A new online tool for &delta;<sup>18</sup>O-temperature conversions: Climate of the Past, v. 19, p. 1265–1274, doi:10.5194/cp-19-1265-2023.</li>");
 	$cite_bibtex = array("@article{gaskell_technical_2023, title = {Technical note: {A} new online tool for δ{18O}–temperature conversions}, volume = {19}, issn = {1814-9324}, shorttitle = {Technical note}, url = {https://cp.copernicus.org/articles/19/1265/2023/}, doi = {10.5194/cp-19-1265-2023},	language = {English}, number = {6}, journal = {Climate of the Past}, author = {Gaskell, Daniel E. and Hull, Pincelli M.}, month = jun, year = {2023}, note = {Publisher: Copernicus GmbH}, pages = {1265--1274},}");
 	$valid_age_start = 0;
 	$valid_age_end = 1e100;
@@ -1276,7 +1276,7 @@
 			if ($valid_temp_end > 25.6) $valid_temp_end = 25.6;
 			break;
 		case "marchitto_per":
-			$description = "the global core-top calibration of Marchitto et al. (2014) for <i>U. peregrina</i>, as reformulated by Gaskell & Hull (2022): "
+			$description = "the global core-top calibration of Marchitto et al. (2014) for <i>U. peregrina</i>, as reformulated by Gaskell & Hull (2023): "
 						 . "<div class='math'><math><mi>T</mi><mo> = </mo><mfrac><mrow><mn>0.242</mn><mo> - </mo><msqrt><mn>0.046468</mn><mo> + </mo><mn>0.0032</mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo>)</mo></mrow><mrow><mn>0.0016</mn></mrow></mfrac></math></div>"
 						 . "where <i>T</i> is temperature (°C), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VSMOW). An offset of -0.27&#8240; is applied to convert VSMOW to VPBD, following the method used to construct the original calibration (Hut 1987). "
 						 . $description;
@@ -1289,7 +1289,7 @@
 			if ($valid_temp_end > 16.9) $valid_temp_end = 16.9;
 			break;
 		case "marchitto_ele":
-			$description = "the global core-top calibration of Marchitto et al. (2014) for <i>H. elegans</i>, as reformulated by Gaskell & Hull (2022): "
+			$description = "the global core-top calibration of Marchitto et al. (2014) for <i>H. elegans</i>, as reformulated by Gaskell & Hull (2023): "
 						 . "<div class='math'><math><mi>T</mi><mo> = </mo><mfrac><mrow><mn>0.242</mn><mo> - </mo><msqrt><mn>0.053176</mn><mo> + </mo><mn>0.0012</mn><mo> (</mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>c</mn></msub><mo> - </mo><msup><mtext>&delta;</mtext><mn>18</mn></msup><msub><mtext>O</mtext><mi>w</mn></msub><mo>)</mo></mrow><mrow><mn>0.0006</mn></mrow></mfrac></math></div>"
 						 . "where <i>T</i> is temperature (°C), &delta;<sup>18</sup>O<sub><i>c</i></sub> is the oxygen isotope value of the carbonate (&#8240; VPBD), and &delta;<sup>18</sup>O<sub><i>w</i></sub> is the oxygen isotope value of the seawater (&#8240; VSMOW). An offset of -0.27&#8240; is applied to convert VSMOW to VPBD, following the method used to construct the original calibration (Hut 1987). "
 						 . $description;
@@ -1619,7 +1619,7 @@
 			# Because bayfox is computationally expensive, we pre-compute the linear relationships of the posteriors and use them directly.
 			# This approach is valid because bayfox fits a linear model internally, with the consequence that the residuals of bayfox vs.
 			# this linear version are indistinguishable from bayfox's own random scatter when running replicates of the same sample.
-			$description = "the bayfox annual core-top calibration of Malevich et al. (2019), with pooled species, as implemented by Gaskell & Hull (2022). " . $description;
+			$description = "the bayfox annual core-top calibration of Malevich et al. (2019), with pooled species, as implemented by Gaskell & Hull (2023). " . $description;
 			array_push($citations, "<li class='citation'>Malevich, S.B., Vetter, L., and Tierney, J.E., 2019, Global Core Top Calibration of &delta;<sup>18</sup>O in Planktic Foraminifera to Sea Surface Temperature: Paleoceanography and Paleoclimatology, v. 34, p. 1292–1315, doi:10.1029/2019PA003576.</li>");
 			array_push($cite_bibtex, "@article{malevich_global_2019,\n\ttitle = {Global {Core} {Top} {Calibration} of δ{18O} in {Planktic} {Foraminifera} to {Sea} {Surface} {Temperature}},\n\tvolume = {34},\n\tissn = {2572-4525},\n\turl = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2019PA003576},\n\tdoi = {10.1029/2019PA003576},\n\tlanguage = {en},\n\tnumber = {8},\n\turldate = {2020-08-12},\n\tjournal = {Paleoceanography and Paleoclimatology},\n\tauthor = {Malevich, Steven B. and Vetter, Lael and Tierney, Jessica E.},\n\tyear = {2019},\n\tpages = {1292--1315},\n}");
 			mutate($data, "temp_2.5",  function($row) {return 11.8790 - 4.0562*($row['d18O_CO3'] - ($row['d18Osw_global'] + $row['d18Osw_spatial']));});
@@ -1631,7 +1631,7 @@
 			$needed['temp_97.5'] = TRUE;
 			break;
 		case "bayfox_ruber":
-			$description = "the bayfox annual core-top calibration of Malevich et al. (2019) for <i>Globigerinoides ruber</i> as implemented by Gaskell & Hull (2022). " . $description;
+			$description = "the bayfox annual core-top calibration of Malevich et al. (2019) for <i>Globigerinoides ruber</i> as implemented by Gaskell & Hull (2023). " . $description;
 			array_push($citations, "<li class='citation'>Malevich, S.B., Vetter, L., and Tierney, J.E., 2019, Global Core Top Calibration of &delta;<sup>18</sup>O in Planktic Foraminifera to Sea Surface Temperature: Paleoceanography and Paleoclimatology, v. 34, p. 1292–1315, doi:10.1029/2019PA003576.</li>");
 			array_push($cite_bibtex, "@article{malevich_global_2019,\n\ttitle = {Global {Core} {Top} {Calibration} of δ{18O} in {Planktic} {Foraminifera} to {Sea} {Surface} {Temperature}},\n\tvolume = {34},\n\tissn = {2572-4525},\n\turl = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2019PA003576},\n\tdoi = {10.1029/2019PA003576},\n\tlanguage = {en},\n\tnumber = {8},\n\turldate = {2020-08-12},\n\tjournal = {Paleoceanography and Paleoclimatology},\n\tauthor = {Malevich, Steven B. and Vetter, Lael and Tierney, Jessica E.},\n\tyear = {2019},\n\tpages = {1292--1315},\n}");
 			mutate($data, "temp_2.5",  function($row) {return  8.6827 - 5.3030*($row['d18O_CO3'] - ($row['d18Osw_global'] + $row['d18Osw_spatial']));});
@@ -1643,7 +1643,7 @@
 			$needed['temp_97.5'] = TRUE;
 			break;
 		case "bayfox_sac":
-			$description = "the bayfox annual core-top calibration of Malevich et al. (2019) for <i>Trilobatus sacculifer</i> as implemented by Gaskell & Hull (2022). " . $description;
+			$description = "the bayfox annual core-top calibration of Malevich et al. (2019) for <i>Trilobatus sacculifer</i> as implemented by Gaskell & Hull (2023). " . $description;
 			array_push($citations, "<li class='citation'>Malevich, S.B., Vetter, L., and Tierney, J.E., 2019, Global Core Top Calibration of &delta;<sup>18</sup>O in Planktic Foraminifera to Sea Surface Temperature: Paleoceanography and Paleoclimatology, v. 34, p. 1292–1315, doi:10.1029/2019PA003576.</li>");
 			array_push($cite_bibtex, "@article{malevich_global_2019,\n\ttitle = {Global {Core} {Top} {Calibration} of δ{18O} in {Planktic} {Foraminifera} to {Sea} {Surface} {Temperature}},\n\tvolume = {34},\n\tissn = {2572-4525},\n\turl = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2019PA003576},\n\tdoi = {10.1029/2019PA003576},\n\tlanguage = {en},\n\tnumber = {8},\n\turldate = {2020-08-12},\n\tjournal = {Paleoceanography and Paleoclimatology},\n\tauthor = {Malevich, Steven B. and Vetter, Lael and Tierney, Jessica E.},\n\tyear = {2019},\n\tpages = {1292--1315},\n}");
 			mutate($data, "temp_2.5",  function($row) {return  6.8415 - 6.4534*($row['d18O_CO3'] - ($row['d18Osw_global'] + $row['d18Osw_spatial']));});
@@ -1655,7 +1655,7 @@
 			$needed['temp_97.5'] = TRUE;
 			break;
 		case "bayfox_bul":
-			$description = "the bayfox annual core-top calibration of Malevich et al. (2019) for <i>Globigerina bulloides</i> as implemented by Gaskell & Hull (2022). " . $description;
+			$description = "the bayfox annual core-top calibration of Malevich et al. (2019) for <i>Globigerina bulloides</i> as implemented by Gaskell & Hull (2023). " . $description;
 			array_push($citations, "<li class='citation'>Malevich, S.B., Vetter, L., and Tierney, J.E., 2019, Global Core Top Calibration of &delta;<sup>18</sup>O in Planktic Foraminifera to Sea Surface Temperature: Paleoceanography and Paleoclimatology, v. 34, p. 1292–1315, doi:10.1029/2019PA003576.</li>");
 			array_push($cite_bibtex, "@article{malevich_global_2019,\n\ttitle = {Global {Core} {Top} {Calibration} of δ{18O} in {Planktic} {Foraminifera} to {Sea} {Surface} {Temperature}},\n\tvolume = {34},\n\tissn = {2572-4525},\n\turl = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2019PA003576},\n\tdoi = {10.1029/2019PA003576},\n\tlanguage = {en},\n\tnumber = {8},\n\turldate = {2020-08-12},\n\tjournal = {Paleoceanography and Paleoclimatology},\n\tauthor = {Malevich, Steven B. and Vetter, Lael and Tierney, Jessica E.},\n\tyear = {2019},\n\tpages = {1292--1315},\n}");
 			mutate($data, "temp_2.5",  function($row) {return 11.6699 - 4.1260*($row['d18O_CO3'] - ($row['d18Osw_global'] + $row['d18Osw_spatial']));});
@@ -1667,7 +1667,7 @@
 			$needed['temp_97.5'] = TRUE;
 			break;
 		case "bayfox_inc":
-			$description = "the bayfox annual core-top calibration of Malevich et al. (2019) for <i>Neogloboquadrina incompta</i> as implemented by Gaskell & Hull (2022). " . $description;
+			$description = "the bayfox annual core-top calibration of Malevich et al. (2019) for <i>Neogloboquadrina incompta</i> as implemented by Gaskell & Hull (2023). " . $description;
 			array_push($citations, "<li class='citation'>Malevich, S.B., Vetter, L., and Tierney, J.E., 2019, Global Core Top Calibration of &delta;<sup>18</sup>O in Planktic Foraminifera to Sea Surface Temperature: Paleoceanography and Paleoclimatology, v. 34, p. 1292–1315, doi:10.1029/2019PA003576.</li>");
 			array_push($cite_bibtex, "@article{malevich_global_2019,\n\ttitle = {Global {Core} {Top} {Calibration} of δ{18O} in {Planktic} {Foraminifera} to {Sea} {Surface} {Temperature}},\n\tvolume = {34},\n\tissn = {2572-4525},\n\turl = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2019PA003576},\n\tdoi = {10.1029/2019PA003576},\n\tlanguage = {en},\n\tnumber = {8},\n\turldate = {2020-08-12},\n\tjournal = {Paleoceanography and Paleoclimatology},\n\tauthor = {Malevich, Steven B. and Vetter, Lael and Tierney, Jessica E.},\n\tyear = {2019},\n\tpages = {1292--1315},\n}");
 			mutate($data, "temp_2.5",  function($row) {return 11.5827 - 5.7159*($row['d18O_CO3'] - ($row['d18Osw_global'] + $row['d18Osw_spatial']));});
@@ -1679,7 +1679,7 @@
 			$needed['temp_97.5'] = TRUE;
 			break;
 		case "bayfox_pac":
-			$description = "the bayfox annual core-top calibration of Malevich et al. (2019) for <i>Neogloboquadrina pachyderma</i> as implemented by Gaskell & Hull (2022). " . $description;
+			$description = "the bayfox annual core-top calibration of Malevich et al. (2019) for <i>Neogloboquadrina pachyderma</i> as implemented by Gaskell & Hull (2023). " . $description;
 			array_push($citations, "<li class='citation'>Malevich, S.B., Vetter, L., and Tierney, J.E., 2019, Global Core Top Calibration of &delta;<sup>18</sup>O in Planktic Foraminifera to Sea Surface Temperature: Paleoceanography and Paleoclimatology, v. 34, p. 1292–1315, doi:10.1029/2019PA003576.</li>");
 			array_push($cite_bibtex, "@article{malevich_global_2019,\n\ttitle = {Global {Core} {Top} {Calibration} of δ{18O} in {Planktic} {Foraminifera} to {Sea} {Surface} {Temperature}},\n\tvolume = {34},\n\tissn = {2572-4525},\n\turl = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2019PA003576},\n\tdoi = {10.1029/2019PA003576},\n\tlanguage = {en},\n\tnumber = {8},\n\turldate = {2020-08-12},\n\tjournal = {Paleoceanography and Paleoclimatology},\n\tauthor = {Malevich, Steven B. and Vetter, Lael and Tierney, Jessica E.},\n\tyear = {2019},\n\tpages = {1292--1315},\n}");
 			mutate($data, "temp_2.5",  function($row) {return 14.8492 - 4.9474*($row['d18O_CO3'] - ($row['d18Osw_global'] + $row['d18Osw_spatial']));});
