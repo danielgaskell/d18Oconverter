@@ -14,9 +14,9 @@
     - Any publications making use of the Software or any substantial portions
       thereof shall cite the Software's original publication:
 
-          Gaskell, D.E., and Hull, P.M., 2023, Technical note: A new online
-		  tool for d18O-temperature conversions: Climate of the Past
-		  Discussions (preprint), doi:10.5194/cp-2022-74.
+          Gaskell, D.E., and Hull, P.M., 2023, Technical note: A new online tool
+		  for δ18O–temperature conversions: Climate of the Past, v. 19, p.
+		  1265–1274, doi:10.5194/cp-19-1265-2023.
 
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -337,8 +337,8 @@
 
 	// set up output
 	$description = "";
-	$citations = array("<li class='citation'>Gaskell, D.E., Pincelli M. Hull, 2022. Technical note: A new online tool for &delta;<sup>18</sup>O-temperature conversions: Climate of the Past Discussions (preprint). doi:10.5194/cp-2022-74.</li>");
-	$cite_bibtex = array("@article{gaskell_technical_2022,\n\ttitle = {Technical note: {A} new online tool for {d18O}-temperature conversions},\n\tissn = {1814-9324},\n\tshorttitle = {Technical note},\n\turl = {https://cp.copernicus.org/preprints/cp-2022-74/},\n\tdoi = {10.5194/cp-2022-74},\n\tlanguage = {English},\n\turldate = {2022-10-11},\n\tjournal = {Climate of the Past Discussions},\n\tauthor = {Gaskell, Daniel E. and Hull, Pincelli M.},\n\tmonth = oct,\n\tyear = {2022},\n\tnote = {Publisher: Copernicus GmbH},\n\tpages = {1--11},}");
+	$citations = array("<li class='citation'>Gaskell, D.E., Pincelli M. Hull, 2023. Technical note: A new online tool for &delta;<sup>18</sup>O-temperature conversions: Climate of the Past, v. 19, p. 1265–1274, doi:10.5194/cp-19-1265-2023.</li>");
+	$cite_bibtex = array("@article{gaskell_technical_2023, title = {Technical note: {A} new online tool for δ{18O}–temperature conversions}, volume = {19}, issn = {1814-9324}, shorttitle = {Technical note}, url = {https://cp.copernicus.org/articles/19/1265/2023/}, doi = {10.5194/cp-19-1265-2023},	language = {English}, number = {6}, journal = {Climate of the Past}, author = {Gaskell, Daniel E. and Hull, Pincelli M.}, month = jun, year = {2023}, note = {Publisher: Copernicus GmbH}, pages = {1265--1274},}");
 	$valid_age_start = 0;
 	$valid_age_end = 1e100;
 	$valid_lat_start = -90;

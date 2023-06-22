@@ -12,7 +12,7 @@ furnished to do so, subject to the following conditions:
 - Any publications making use of the Software or any substantial portions
   thereof shall cite the Software's original publication:
 
-> Gaskell, D.E., and Hull, P.M., 2022, Technical note: A new online tool for &delta;<sup>18</sup>O-temperature conversions: Climate of the Past Discussions (preprint), doi:10.5194/cp-2022-74.
+> Gaskell, D.E., and Hull, P.M., 2023, Technical note: A new online tool for &delta;<sup>18</sup>O–temperature conversions: Climate of the Past, v. 19, p. 1265–1274, doi:10.5194/cp-19-1265-2023.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
