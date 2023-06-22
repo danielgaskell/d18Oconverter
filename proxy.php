@@ -1985,7 +1985,7 @@
 		<h2>Methods & references</h2>
 		<p>Methods for this conversion:</p>
 		<blockquote>
-			&delta;<sup>18</sup>O data (VPDB) were converted to temperature (°C) using an online tool (Gaskell & Hull 2022, version <?php echo $version; ?>), applying <?php echo $description; ?>
+			&delta;<sup>18</sup>O data (VPDB) were converted to temperature (°C) using an online tool (Gaskell & Hull 2023, version <?php echo $version; ?>), applying <?php echo $description; ?>
 		</blockquote>
 		<form action="bibtex.php" method="post" target="_blank">
 		<p>References to cite for these methods 
